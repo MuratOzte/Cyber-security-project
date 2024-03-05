@@ -3,18 +3,27 @@
 @tailwind utilities;
 
 @layer utilities {
-    .bg-soft-gray {
-        background-color: #121212;
+    .bg-nav{
+        background-color: #212223;
     }
-    .bg-dark-gray {
-        background-color: #090909;
+    .bg-4{
+        background-color: #272829;
+    }
+    .bg-3{
+        background-color: #61677A;
+    }
+    .bg-2{
+        background-color: #D8D9DA;
+    }
+    .bg-1{
+        background-color: #FFF6E0;
     }
 }
 
 body {
     margin: 0;
     padding: 0;
-    background-color: #090909;
+    background-color: #272829;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     color: beige;
     height: 100vh;
