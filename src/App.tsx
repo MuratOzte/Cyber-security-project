@@ -1,8 +1,9 @@
+import Hero from './components/home/hero';
 import Nav from './components/nav/nav';
 function App() {
     return (
-        <div className="w-full h-16">
-            <Nav />
+        <div className="snap-y">
+            <Hero />
         </div>
     );
 }
