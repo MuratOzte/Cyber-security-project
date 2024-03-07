@@ -18,30 +18,39 @@ const Hero = () => {
                 </div>
             </div>
             {/* login container */}
-            <div className="bg-blue-500 w-1/2 h-full p-12 px-32">
-                <div className="bg-red-400 w-full h-full rounded-xl shadow-xl shadow-slate-600">
+            <div className="w-1/2 h-full p-12 px-4 sm:px-16">
+                <div className="w-full h-full rounded-xl bg-gray-800 p-8">
                     <form className="flex flex-col space-y-6 items-center h-full justify-center">
                         <input
                             type="text"
                             placeholder="name"
-                            className="w-2/3 text-gray-700"
+                            className="w-full text-gray-800 text-[24px] p-2 rounded-lg bg-slate-500"
                         />
                         <input
-                            type="text"
+                            type="password"
                             placeholder="password"
-                            className="w-2/3"
+                            className="w-full text-gray-500 p-2 rounded-lg bg-slate-500"
                         />
                         <input
                             type="email"
                             placeholder="email"
-                            className="w-2/3"
+                            className="w-full text-gray-500 p-2 rounded-lg bg-slate-500"
                         />
                         {/* checkbox */}
-                        <div className="flex gap-2 w-2/3" >
-                            <input type="checkbox" />
-                            <p>Remember Me</p>
+                        <div className="flex items-center">
+                            <input
+                                type="checkbox"
+                                id="remember-me"
+                                className="mr-2"
+                            />
+                            <label
+                                htmlFor="remember-me"
+                                className="text-gray-300"
+                            >
+                                Remember Me
+                            </label>
                         </div>
-                        <button className="bg-blue-600 text-white w-2/3 p-2 rounded-lg">
+                        <button className="bg-blue-600 text-white w-full p-2 rounded-lg">
                             Register
                         </button>
                     </form>
