@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Alert from '../common/Alert';
+import registerValidation from '../../utils/registerValidation';
 
 const LoginContainer = () => {
     const [data, setData] = useState({
@@ -17,12 +18,14 @@ const LoginContainer = () => {
     const handleSubmit = (e: any) => {
         e.preventDefault();
         setIsLoading(true);
-        if (data.password !== data.retypePassword) {
+        console.log(data);
+
+        const response = registerValidation(data);
+        if (response) {
+            setError(response);
             setIsLoading(false);
-            setError('Passwords do not match');
             return;
         }
-        console.log(data);
         setIsLoading(false);
     };
     return (
@@ -45,8 +48,8 @@ const LoginContainer = () => {
                     />
                     <input
                         type="password"
-                        name="retype Password"
-                        placeholder="retype password"
+                        name="retypePassword"
+                        placeholder="retypepassword"
                         onChange={handleChange}
                         className="w-full text-gray-800 p-3 rounded-lg bg-gray-400 placeholder:text-gray-500"
                     />
