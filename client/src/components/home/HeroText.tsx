@@ -1,11 +1,11 @@
 const HeroText = () => {
     return (
-        <div className="w-1/2 h-full">
+        <div className="w-1/2 h-full ml-12">
             {/* big text */}
-            <div className="flex flex-col items-center justify-center space-y-20 h-full">
+            <div className="flex flex-col items-center justify-center space-y-16 h-full">
                 <h1 className="text-6xl font-bold">Welcome to our website</h1>
                 {/* small text */}
-                <p className="text-l m-12">
+                <p className="text-l p-2">
                     Lorem ipsum dolor sit amet consectetur adipisicing elit.
                     Debitis maiores optio ex dolore, hic quis dolores aliquid
                     nemo repellendus commodi, enim et consequatur. Fuga quod a

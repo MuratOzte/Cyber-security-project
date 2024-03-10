@@ -1,6 +1,10 @@
 import { useState } from 'react';
 import Alert from '../common/Alert';
 import registerValidation from '../../utils/registerValidation';
+import { AnimatePresence, motion } from 'framer-motion';
+//icons
+import { MdOutlineVisibility } from 'react-icons/md';
+import { MdOutlineVisibilityOff } from 'react-icons/md';
 
 const LoginContainer = () => {
     const [data, setData] = useState({
@@ -10,6 +14,7 @@ const LoginContainer = () => {
     });
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState(null);
+    const [isPasswordVisible, setIsPasswordVisible] = useState(false);
 
     const handleChange = (e: any) => {
         setData({ ...data, [e.target.name]: e.target.value });
@@ -28,10 +33,14 @@ const LoginContainer = () => {
         }
         setIsLoading(false);
     };
+
+    const togglePasswordVisibility = () => {
+        setIsPasswordVisible(!isPasswordVisible);
+    };
     return (
         <div className="w-1/2 h-full p-12 px-4 sm:px-16">
             <div className="w-full h-full rounded-xl bg-gray-600 p-8 shadow-lg">
-                <form className="flex flex-col space-y-6 items-center h-full justify-center">
+                <form className="flex flex-col space-y-6 items-center h-full mt-7">
                     <input
                         type="email"
                         name="email"
@@ -39,13 +48,32 @@ const LoginContainer = () => {
                         onChange={handleChange}
                         className="w-full text-gray-800 p-3 rounded-lg bg-gray-400 placeholder:text-gray-500"
                     />
-                    <input
-                        type="password"
-                        name="password"
-                        placeholder="password"
-                        onChange={handleChange}
-                        className="w-full text-gray-800 p-3 rounded-lg bg-gray-400 placeholder:text-gray-500"
-                    />
+                    <div className="w-full relative">
+                        <input
+                            type={isPasswordVisible ? 'text' : 'password'}
+                            name="password"
+                            placeholder="password"
+                            onChange={handleChange}
+                            className="w-full text-gray-800 p-3 rounded-lg bg-gray-400 placeholder:text-gray-500"
+                        />
+                        <div
+                            className="absolute inset-y-0 right-0 pr-6 flex items-center cursor-pointer"
+                            onClick={togglePasswordVisibility}
+                        >
+                            {isPasswordVisible && data.password.length > 0 && (
+                                <MdOutlineVisibilityOff
+                                    className="w-6 h-6"
+                                    color="#212223"
+                                />
+                            )}
+                            {!isPasswordVisible && data.password.length > 0 && (
+                                <MdOutlineVisibility
+                                    className="w-6 h-6"
+                                    color="#212223"
+                                />
+                            )}
+                        </div>
+                    </div>
                     <input
                         type="password"
                         name="retypePassword"
@@ -92,7 +120,21 @@ const LoginContainer = () => {
                         )}
                         {!isLoading && 'Register'}
                     </button>
-                    {error && <Alert description={error} setError={setError} />}
+                    <AnimatePresence>
+                        {error && (
+                            <motion.div
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                exit={{ opacity: 0, y: 20 }}
+                                transition={{ duration: 0.3 }}
+                            >
+                                <Alert
+                                    description={error}
+                                    setError={setError}
+                                />
+                            </motion.div>
+                        )}
+                    </AnimatePresence>
                 </form>
             </div>
         </div>
