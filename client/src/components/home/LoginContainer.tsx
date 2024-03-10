@@ -15,6 +15,8 @@ const LoginContainer = () => {
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState(null);
     const [isPasswordVisible, setIsPasswordVisible] = useState(false);
+    const [isRetypePasswordVisible, setIsRetypePasswordVisible] =
+        useState(false);
 
     const handleChange = (e: any) => {
         setData({ ...data, [e.target.name]: e.target.value });
@@ -34,9 +36,6 @@ const LoginContainer = () => {
         setIsLoading(false);
     };
 
-    const togglePasswordVisibility = () => {
-        setIsPasswordVisible(!isPasswordVisible);
-    };
     return (
         <div className="w-1/2 h-full p-12 px-4 sm:px-16">
             <div className="w-full h-full rounded-xl bg-gray-600 p-8 shadow-lg">
@@ -58,7 +57,9 @@ const LoginContainer = () => {
                         />
                         <div
                             className="absolute inset-y-0 right-0 pr-6 flex items-center cursor-pointer"
-                            onClick={togglePasswordVisibility}
+                            onClick={() => {
+                                setIsPasswordVisible((prev) => !prev);
+                            }}
                         >
                             {isPasswordVisible && data.password.length > 0 && (
                                 <MdOutlineVisibilityOff
@@ -74,13 +75,36 @@ const LoginContainer = () => {
                             )}
                         </div>
                     </div>
-                    <input
-                        type="password"
-                        name="retypePassword"
-                        placeholder="retypepassword"
-                        onChange={handleChange}
-                        className="w-full text-gray-800 p-3 rounded-lg bg-gray-400 placeholder:text-gray-500"
-                    />
+                    <div className="w-full relative">
+                        <input
+                            type={isRetypePasswordVisible ? 'text' : 'password'}
+                            name="retypePassword"
+                            placeholder="retypePassword"
+                            onChange={handleChange}
+                            className="w-full text-gray-800 p-3 rounded-lg bg-gray-400 placeholder:text-gray-500"
+                        />
+                        <div
+                            className="absolute inset-y-0 right-0 pr-6 flex items-center cursor-pointer"
+                            onClick={() => {
+                                setIsRetypePasswordVisible((prev) => !prev);
+                            }}
+                        >
+                            {isRetypePasswordVisible &&
+                                data.retypePassword.length > 0 && (
+                                    <MdOutlineVisibilityOff
+                                        className="w-6 h-6"
+                                        color="#212223"
+                                    />
+                                )}
+                            {!isRetypePasswordVisible &&
+                                data.retypePassword.length > 0 && (
+                                    <MdOutlineVisibility
+                                        className="w-6 h-6"
+                                        color="#212223"
+                                    />
+                                )}
+                        </div>
+                    </div>
                     <div className="flex items-center w-full ml-[4px]">
                         <div className="flex items-center">
                             <input
