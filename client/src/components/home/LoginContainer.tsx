@@ -18,13 +18,16 @@ const LoginContainer = () => {
     const [isRetypePasswordVisible, setIsRetypePasswordVisible] =
         useState(false);
 
+    const [isLogin, setIsLogin] = useState(true);
+
     const handleChange = (e: any) => {
         setData({ ...data, [e.target.name]: e.target.value });
     };
 
-    const handleSubmit = (e: any) => {
+    const handleSubmit = async (e: any) => {
         e.preventDefault();
         setIsLoading(true);
+        setError(null);
         console.log(data);
 
         const response = registerValidation(data);
