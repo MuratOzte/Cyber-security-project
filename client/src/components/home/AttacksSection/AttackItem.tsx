@@ -10,12 +10,12 @@ const AttackItem: React.FC<AttackItemProps> = ({
     image,
 }) => {
     return (
-        <div className="bg-gray-600 p-5 flex w-[30%] h-[40%] justify-between">
+        <div className="bg-gray-600 p-8 flex w-[30%] h-min justify-between items-center rounded-xl mx-auto mb-8">
             <div className="h-full ">
-                <h1 className="text-4xl text-gray-100 uppercase" >{title}</h1>
-                <p className="w-full text-gray-300">{description}</p>
+                <h1 className="text-4xl text-gray-100 uppercase mb-3" >{title}</h1>
+                <p className="w-full text-gray-300 text-sm">{description}</p>
             </div>
-            <div className="w-2/3 h-full bg-gray-400 flex justify-center rounded-xl min-w-44">
+            <div className="w-2/3 h-full flex justify-center rounded-xl min-w-44 ml-5">
                 <img
                     src={image}
                     alt={title}
