@@ -1,6 +1,5 @@
-import Attacks from './components/home/Attacks';
-import Hero from './components/home/hero';
-import Nav from './components/nav/nav';
+import Attacks from './components/home/AttacksSection/Attacks';
+import Hero from './components/home/HeroSection/hero';
 function App() {
     return (
         <>

@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import Alert from '../common/Alert';
-import registerValidation from '../../utils/registerValidation';
+import Alert from '../../common/Alert';
+import registerValidation from '../../../utils/registerValidation';
 import { AnimatePresence, motion } from 'framer-motion';
 //icons
 import { MdOutlineVisibility } from 'react-icons/md';
