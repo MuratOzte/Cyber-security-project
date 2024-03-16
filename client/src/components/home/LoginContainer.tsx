@@ -40,7 +40,7 @@ const LoginContainer = () => {
     };
 
     return (
-        <div className="w-1/2 h-full p-12 px-4 sm:px-16">
+        <div className="w-1/2 h-4/5 p-12 px-4 sm:px-16">
             <div className="w-full h-full rounded-xl bg-gray-600 p-8 shadow-lg">
                 <form className="flex flex-col space-y-6 items-center h-full mt-7">
                     <input
