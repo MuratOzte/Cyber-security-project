@@ -29,3 +29,15 @@ body {
     height: 100vh;
     overflow-y: hidden;
 }
+
+::-webkit-scrollbar{
+    background-color: #D8D9DA;
+    width: 10px;
+    border-radius: 16px;
+}
+
+::-webkit-scrollbar-thumb{
+    background-color: #61677A;
+    width: 10px;
+    border-radius: 16px;
+}
