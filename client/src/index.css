@@ -31,13 +31,13 @@ body {
 }
 
 ::-webkit-scrollbar{
-    background-color: #D8D9DA;
+    background-color: transparent;
     width: 10px;
     border-radius: 16px;
 }
 
 ::-webkit-scrollbar-thumb{
-    background-color: #61677A;
+    background-color: #D8D9DA;
     width: 10px;
     border-radius: 16px;
 }
