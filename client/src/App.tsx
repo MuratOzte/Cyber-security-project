@@ -10,9 +10,6 @@ function App() {
                 <div className="snap-center snap-always">
                     <Attacks />
                 </div>
-                <div className="snap-center snap-always">
-                    <Attacks />
-                </div>
             </div>
         </>
     );

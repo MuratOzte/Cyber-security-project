@@ -1,5 +1,12 @@
 import AttackItem from './AttackItem';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import {
+    motion,
+    useScroll,
+    useTransform,
+    useInView,
+    useMotionValue,
+} from 'framer-motion';
+import { useRef } from 'react';
 
 const attacks = [
     {
@@ -41,30 +48,26 @@ const attacks = [
 ];
 
 const Attacks = () => {
-    const { scrollY } = useScroll();
-    console.log(scrollY);
-
-    const backgroundColorStyle = useTransform(
-        scrollY,
-        [0, 800],
-        ['white', 'black']
-    );
+    const container = useRef(null);
+    const isInView = useInView(container);
 
     return (
-        <div className="h-[100vh] w-full">
-            <motion.div
-                style={{ backgroundColor: backgroundColorStyle }}
-                className="flex flex-wrap p-12 justify-center"
+        <div className="h-screen w-full">
+            <div
+                ref={container}
+                className="flex flex-wrap p-12 justify-center h-full w-full flex-row"
             >
-                {attacks.map((e) => (
+                {attacks.map((attack, index) => (
                     <AttackItem
-                        description={e.description}
-                        key={'Desc' + e.title}
-                        image={e.image}
-                        title={e.title}
+                        key={index + 'attack'}
+                        title={attack.title}
+                        description={attack.description}
+                        image={attack.image}
+                        isInView={isInView}
+                        index={index}
                     />
                 ))}
-            </motion.div>
+            </div>
         </div>
     );
 };
