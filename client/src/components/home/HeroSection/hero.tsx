@@ -3,7 +3,7 @@ import LoginContainer from './LoginContainer';
 
 const Hero = () => {
     return (
-        <div className="flex gap-5 mx-4 h-[90vh]">
+        <div className="flex gap-5 mx-4 h-screen">
             <HeroText />
             <LoginContainer />
         </div>

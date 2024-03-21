@@ -1,7 +1,7 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import Alert from '../../common/Alert';
 import registerValidation from '../../../utils/registerValidation';
-import { AnimatePresence, motion } from 'framer-motion';
+import { AnimatePresence, motion, useInView, Variants } from 'framer-motion';
 //icons
 import { MdOutlineVisibility } from 'react-icons/md';
 import { MdOutlineVisibilityOff } from 'react-icons/md';
@@ -18,7 +18,8 @@ const LoginContainer = () => {
     const [isRetypePasswordVisible, setIsRetypePasswordVisible] =
         useState(false);
 
-    const [isLogin, setIsLogin] = useState(true);
+    const ref = useRef(null);
+    const isInView = useInView(ref);
 
     const handleChange = (e: any) => {
         setData({ ...data, [e.target.name]: e.target.value });
@@ -39,11 +40,23 @@ const LoginContainer = () => {
         setIsLoading(false);
     };
 
+    const variants: Variants = {
+        hidden: { opacity: 0, scale: 0.95 },
+        visible: { opacity: 1, scale: 1 },
+    };
+
     return (
         <div className="w-1/2 h-4/5 p-12 px-4 sm:px-16">
-            <div className="w-full h-full rounded-xl bg-gray-600 p-8 shadow-lg">
+            <motion.div
+                className="w-full h-full rounded-xl bg-gray-600 p-8 shadow-lg"
+                variants={variants}
+                initial="hidden"
+                animate={isInView ? 'visible' : 'hidden'}
+                transition={{ duration: 0.3, delay: 0.3 }}
+            >
                 <form className="flex flex-col space-y-6 items-center h-full mt-7">
                     <input
+                        ref={ref}
                         type="email"
                         name="email"
                         placeholder="email"
@@ -163,7 +176,7 @@ const LoginContainer = () => {
                         )}
                     </AnimatePresence>
                 </form>
-            </div>
+            </motion.div>
         </div>
     );
 };
