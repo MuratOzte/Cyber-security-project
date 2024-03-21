@@ -20,13 +20,13 @@ const AttackItem: React.FC<AttackItemProps> = ({
 
     useEffect(() => {
         if (index % 3 == 1) {
-            setIndexState(50);
-        }
-        if (index % 3 == 2) {
             setIndexState(0);
         }
-        if (index % 3 == 0) {
+        if (index % 3 == 2) {
             setIndexState(-50);
+        }
+        if (index % 3 == 0) {
+            setIndexState(50);
         }
     }, [index,isInView]);
 
@@ -40,7 +40,7 @@ const AttackItem: React.FC<AttackItemProps> = ({
             <motion.div
                 initial="hidden"
                 animate={isInView ? 'visible' : 'hidden'}
-                transition={{ duration: 0.5, delay: index * 0.05, bounce: 0.2 }}
+                transition={{ duration: 0.8, delay: index * 0.05, bounce: 0.2 }}
                 exit="hidden"
                 variants={variants}
                 className="bg-gray-600 p-8 flex w-[30%] h-min justify-between items-center rounded-xl mx-auto mb-8"
