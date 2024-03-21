@@ -23,10 +23,10 @@ const AttackItem: React.FC<AttackItemProps> = ({
             setIndexState(0);
         }
         if (index % 3 == 2) {
-            setIndexState(-50);
+            setIndexState(50);
         }
         if (index % 3 == 0) {
-            setIndexState(50);
+            setIndexState(-50);
         }
     }, [index,isInView]);
 

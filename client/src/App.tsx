@@ -1,3 +1,4 @@
+import Contact from './components/home/ContactSection/Contact';
 import Attacks from './components/home/AttacksSection/Attacks';
 import Hero from './components/home/HeroSection/hero';
 function App() {
@@ -9,6 +10,9 @@ function App() {
                 </div>
                 <div className="snap-center snap-always">
                     <Attacks />
+                </div>
+                <div className="snap-center snap-always">
+                    <Contact />
                 </div>
             </div>
         </>
