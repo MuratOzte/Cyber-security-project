@@ -55,7 +55,11 @@ const LoginContainer = () => {
                 transition={{ duration: 0.3, delay: 0.3 }}
             >
                 <form className="flex flex-col space-y-6 items-center h-full mt-7">
-                    <input
+                    <motion.input
+                        initial="hidden"
+                        variants={variants}
+                        animate={isInView ? 'visible' : 'hidden'}
+                        transition={{ duration: 0.4, delay: 0.4 }}
                         ref={ref}
                         type="email"
                         name="email"
@@ -63,7 +67,13 @@ const LoginContainer = () => {
                         onChange={handleChange}
                         className="w-full text-gray-800 p-3 rounded-lg bg-gray-400 placeholder:text-gray-500"
                     />
-                    <div className="w-full relative">
+                    <motion.div
+                        variants={variants}
+                        initial="hidden"
+                        animate={isInView ? 'visible' : 'hidden'}
+                        transition={{ duration: 0.4, delay: 0.5 }}
+                        className="w-full relative"
+                    >
                         <input
                             type={isPasswordVisible ? 'text' : 'password'}
                             name="password"
@@ -90,8 +100,14 @@ const LoginContainer = () => {
                                 />
                             )}
                         </div>
-                    </div>
-                    <div className="w-full relative">
+                    </motion.div>
+                    <motion.div
+                        className="w-full relative"
+                        variants={variants}
+                        initial="hidden"
+                        animate={isInView ? 'visible' : 'hidden'}
+                        transition={{ duration: 0.4, delay: 0.6 }}
+                    >
                         <input
                             type={isRetypePasswordVisible ? 'text' : 'password'}
                             name="retypePassword"
@@ -120,8 +136,14 @@ const LoginContainer = () => {
                                     />
                                 )}
                         </div>
-                    </div>
-                    <div className="flex items-center w-full ml-[4px]">
+                    </motion.div>
+                    <motion.div
+                        className="flex items-center w-full ml-[4px]"
+                        variants={variants}
+                        initial="hidden"
+                        animate={isInView ? 'visible' : 'hidden'}
+                        transition={{ duration: 0.4, delay: 0.7 }}
+                    >
                         <div className="flex items-center">
                             <input
                                 type="checkbox"
@@ -132,8 +154,12 @@ const LoginContainer = () => {
                                 Remember me
                             </label>
                         </div>
-                    </div>
-                    <button
+                    </motion.div>
+                    <motion.button
+                        variants={variants}
+                        initial="hidden"
+                        animate={isInView ? 'visible' : 'hidden'}
+                        transition={{ duration: 0.4, delay: 0.8 }}
                         onClick={handleSubmit}
                         className="bg-gray-400 text-white w-full p-2 rounded-lg flex justify-center"
                     >
@@ -159,7 +185,7 @@ const LoginContainer = () => {
                             </div>
                         )}
                         {!isLoading && 'Register'}
-                    </button>
+                    </motion.button>
                     <AnimatePresence>
                         {error && (
                             <motion.div
