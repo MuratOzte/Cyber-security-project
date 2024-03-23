@@ -48,13 +48,12 @@ const attacks = [
 ];
 
 const Attacks = () => {
-    const container = useRef(null);
-    const isInView = useInView(container);
 
-    return (
+    
+
+   return (
         <div className="h-screen w-full">
             <div
-                ref={container}
                 className="flex flex-wrap p-12 justify-center h-full w-full flex-row"
             >
                 {attacks.map((attack, index) => (
@@ -63,7 +62,6 @@ const Attacks = () => {
                         title={attack.title}
                         description={attack.description}
                         image={attack.image}
-                        isInView={isInView}
                         index={index}
                     />
                 ))}

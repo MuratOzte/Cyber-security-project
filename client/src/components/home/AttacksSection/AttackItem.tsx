@@ -1,11 +1,10 @@
-import { motion, AnimatePresence } from 'framer-motion';
-import { useState, useEffect } from 'react';
+import { motion, AnimatePresence, useInView } from 'framer-motion';
+import { useState, useEffect, useRef } from 'react';
 
 interface AttackItemProps {
     title: string;
     description: string;
     image: string;
-    isInView: boolean;
     index: number;
 }
 
@@ -13,10 +12,12 @@ const AttackItem: React.FC<AttackItemProps> = ({
     title,
     description,
     image,
-    isInView,
     index,
 }) => {
     const [indexState, setIndexState] = useState(0);
+
+    const container = useRef(null);
+    const isInView = useInView(container);
 
     useEffect(() => {
         if (index % 3 == 1) {
@@ -28,7 +29,7 @@ const AttackItem: React.FC<AttackItemProps> = ({
         if (index % 3 == 0) {
             setIndexState(-50);
         }
-    }, [index,isInView]);
+    }, [index, isInView]);
 
     const variants = {
         visible: { opacity: 1, x: 0 },
@@ -38,6 +39,7 @@ const AttackItem: React.FC<AttackItemProps> = ({
     return (
         <AnimatePresence mode="wait">
             <motion.div
+                ref={container}
                 initial="hidden"
                 animate={isInView ? 'visible' : 'hidden'}
                 transition={{ duration: 0.8, delay: index * 0.05, bounce: 0.2 }}
