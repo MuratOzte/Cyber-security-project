@@ -65,7 +65,7 @@ const LoginContainer = () => {
                         name="email"
                         placeholder="email"
                         onChange={handleChange}
-                        className="w-full text-gray-800 p-3 rounded-lg bg-gray-400 placeholder:text-gray-500"
+                        className="w-full text-gray-800 p-3 rounded-lg bg-gray-400 placeholder:text-gray-500 my-2"
                     />
                     <motion.div
                         variants={variants}
@@ -79,7 +79,7 @@ const LoginContainer = () => {
                             name="password"
                             placeholder="password"
                             onChange={handleChange}
-                            className="w-full text-gray-800 p-3 rounded-lg bg-gray-400 placeholder:text-gray-500"
+                            className="w-full text-gray-800 p-3 rounded-lg bg-gray-400 placeholder:text-gray-500 my-2"
                         />
                         <div
                             className="absolute inset-y-0 right-0 pr-6 flex items-center cursor-pointer"
@@ -113,7 +113,7 @@ const LoginContainer = () => {
                             name="retypePassword"
                             placeholder="retypePassword"
                             onChange={handleChange}
-                            className="w-full text-gray-800 p-3 rounded-lg bg-gray-400 placeholder:text-gray-500"
+                            className="w-full text-gray-800 p-3 rounded-lg bg-gray-400 placeholder:text-gray-500 my-2"
                         />
                         <div
                             className="absolute inset-y-0 right-0 pr-6 flex items-center cursor-pointer"
@@ -137,31 +137,13 @@ const LoginContainer = () => {
                                 )}
                         </div>
                     </motion.div>
-                    <motion.div
-                        className="flex items-center w-full ml-[4px]"
-                        variants={variants}
-                        initial="hidden"
-                        animate={isInView ? 'visible' : 'hidden'}
-                        transition={{ duration: 0.4, delay: 0.7 }}
-                    >
-                        <div className="flex items-center">
-                            <input
-                                type="checkbox"
-                                value=""
-                                className="w-4 h-4 text-slate-500 bg-slate-500 rounded border-gray-300 dark:focus:ring-slate-500 dark:ring-offset-slate-500 focus:ring-2 dark:bg-slate-500 dark:border-gray-600 accent-gray-400"
-                            />
-                            <label className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">
-                                Remember me
-                            </label>
-                        </div>
-                    </motion.div>
                     <motion.button
                         variants={variants}
                         initial="hidden"
                         animate={isInView ? 'visible' : 'hidden'}
                         transition={{ duration: 0.4, delay: 0.8 }}
                         onClick={handleSubmit}
-                        className="bg-gray-400 text-white w-full p-2 rounded-lg flex justify-center"
+                        className="bg-gray-400 text-white w-full p-2 rounded-lg flex justify-center my-2"
                     >
                         {isLoading && (
                             <div role="status">
