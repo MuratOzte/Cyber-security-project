@@ -37,6 +37,17 @@ const LoginContainer = () => {
             setIsLoading(false);
             return;
         }
+
+        const responseData = fetch('http://localhost:3000/register', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data),
+        });
+
+        console.log(responseData);
+
         setIsLoading(false);
     };
 
@@ -46,7 +57,7 @@ const LoginContainer = () => {
     };
 
     return (
-        <div className="w-1/2 h-4/5 p-12 px-4 sm:px-16">
+        <div className="w-1/2 h-5/6 p-12 px-4 sm:px-16">
             <motion.div
                 className="w-full h-full rounded-xl bg-gray-600 p-8 shadow-lg"
                 variants={variants}
@@ -168,6 +179,10 @@ const LoginContainer = () => {
                         )}
                         {!isLoading && 'Register'}
                     </motion.button>
+                    <p className="text-gray-400 text-xl cursor-pointer">
+                        Already have an account?{' '}
+                        <span className="text-gray-300">Sign in</span>
+                    </p>
                     <AnimatePresence>
                         {error && (
                             <motion.div
