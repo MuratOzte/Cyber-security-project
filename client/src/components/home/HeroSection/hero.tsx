@@ -1,5 +1,5 @@
 import HeroText from './HeroText';
-import LoginContainer from './LoginContainer';
+import LoginContainer from './RegisterContainer';
 
 const Hero = () => {
     return (
