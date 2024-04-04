@@ -1,4 +1,32 @@
-const LoginContainer = () => {
+import { Ref, RefObject, useState } from 'react';
+import { motion } from 'framer-motion';
+import { MdOutlineVisibility } from 'react-icons/md';
+import { MdOutlineVisibilityOff } from 'react-icons/md';
+import { Dispatch, SetStateAction } from 'react';
+
+interface LoginContainerProps {
+    isInView?: boolean;
+    variants?: any;
+    ref?: any;
+    isPasswordVisible?: boolean;
+    setIsLogin?: Dispatch<SetStateAction<boolean>>;
+}
+
+const LoginContainer: React.FC<LoginContainerProps> = ({
+    isInView,
+    variants,
+    ref,
+    isPasswordVisible,
+    setIsLogin,
+}) => {
+    const [data, setData] = useState({
+        email: '',
+        password: '',
+        retypePassword: '',
+    });
+
+    const handleChange = () => {};
+
     return (
         <form className="flex flex-col space-y-6 items-center h-full mt-7">
             <motion.input
@@ -45,42 +73,6 @@ const LoginContainer = () => {
                             color="#212223"
                         />
                     )}
-                </div>
-            </motion.div>
-            <motion.div
-                className="w-full relative"
-                variants={variants}
-                initial="hidden"
-                animate={isInView ? 'visible' : 'hidden'}
-                transition={{ duration: 0.4, delay: 0.6 }}
-            >
-                <input
-                    type={isRetypePasswordVisible ? 'text' : 'password'}
-                    name="retypePassword"
-                    placeholder="retypePassword"
-                    onChange={handleChange}
-                    className="w-full text-gray-800 p-3 rounded-lg bg-gray-400 placeholder:text-gray-500 my-2"
-                />
-                <div
-                    className="absolute inset-y-0 right-0 pr-6 flex items-center cursor-pointer"
-                    onClick={() => {
-                        setIsRetypePasswordVisible((prev) => !prev);
-                    }}
-                >
-                    {isRetypePasswordVisible &&
-                        data.retypePassword.length > 0 && (
-                            <MdOutlineVisibilityOff
-                                className="w-6 h-6"
-                                color="#212223"
-                            />
-                        )}
-                    {!isRetypePasswordVisible &&
-                        data.retypePassword.length > 0 && (
-                            <MdOutlineVisibility
-                                className="w-6 h-6"
-                                color="#212223"
-                            />
-                        )}
                 </div>
             </motion.div>
             <motion.button
