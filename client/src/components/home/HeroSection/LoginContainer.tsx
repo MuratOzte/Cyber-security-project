@@ -8,7 +8,6 @@ interface LoginContainerProps {
     isInView?: boolean;
     variants?: any;
     ref?: any;
-    isPasswordVisible?: boolean;
     setIsLogin?: Dispatch<SetStateAction<boolean>>;
 }
 
@@ -16,7 +15,6 @@ const LoginContainer: React.FC<LoginContainerProps> = ({
     isInView,
     variants,
     ref,
-    isPasswordVisible,
     setIsLogin,
 }) => {
     const [data, setData] = useState({
@@ -25,7 +23,13 @@ const LoginContainer: React.FC<LoginContainerProps> = ({
         retypePassword: '',
     });
 
+    const [isPasswordVisible, setIsPasswordVisible] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
+
+
     const handleChange = () => {};
+
+    const handleSubmit = () => {};
 
     return (
         <form className="flex flex-col space-y-6 items-center h-full mt-7">

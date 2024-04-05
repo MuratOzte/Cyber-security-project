@@ -5,8 +5,17 @@ import { AnimatePresence, motion, useInView, Variants } from 'framer-motion';
 //icons
 import { MdOutlineVisibility } from 'react-icons/md';
 import { MdOutlineVisibilityOff } from 'react-icons/md';
+//types
+import { Dispatch, SetStateAction } from 'react';
 
-const LoginContainer = () => {
+interface RegisterContainerProps {
+    isInView?: boolean;
+    variants?: any;
+    ref?: any;
+    setIsLogin?: Dispatch<SetStateAction<boolean>>;
+}
+
+const RegisterContainer: React.FC<RegisterContainerProps> = () => {
     const [data, setData] = useState({
         email: '',
         password: '',
@@ -204,4 +213,4 @@ const LoginContainer = () => {
     );
 };
 
-export default LoginContainer;
+export default RegisterContainer;
