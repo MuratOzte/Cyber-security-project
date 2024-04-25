@@ -43,7 +43,7 @@ const LoginContainer: React.FC<LoginContainerProps> = ({
                 name="email"
                 placeholder="email"
                 onChange={handleChange}
-                className="w-full text-gray-800 p-3 rounded-lg bg-gray-400 placeholder:text-gray-500 my-2"
+                className="w-full text-gray-800 p-3 rounded-lg bg-gray-400 placeholder:text-gray-500 my-2 focus:ring-2 focus:ring-slate-500 focus:outline-none"
             />
             <motion.div
                 variants={variants}
@@ -57,7 +57,7 @@ const LoginContainer: React.FC<LoginContainerProps> = ({
                     name="password"
                     placeholder="password"
                     onChange={handleChange}
-                    className="w-full text-gray-800 p-3 rounded-lg bg-gray-400 placeholder:text-gray-500 my-2"
+                    className="w-full text-gray-800 p-3 rounded-lg bg-gray-400 placeholder:text-gray-500 my-2 focus:ring-2 focus:ring-slate-500 focus:outline-none"
                 />
                 <div
                     className="absolute inset-y-0 right-0 pr-6 flex items-center cursor-pointer"

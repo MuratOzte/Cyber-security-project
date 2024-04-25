@@ -7,6 +7,8 @@ import { MdOutlineVisibility } from 'react-icons/md';
 import { MdOutlineVisibilityOff } from 'react-icons/md';
 //types
 import { Dispatch, SetStateAction } from 'react';
+import CustomInput from './TextInput';
+import PasswordInput from './PasswordInput';
 
 interface RegisterContainerProps {
     isInView?: boolean;
@@ -23,7 +25,6 @@ const RegisterContainer: React.FC<RegisterContainerProps> = () => {
     });
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState(null);
-    const [isPasswordVisible, setIsPasswordVisible] = useState(false);
     const [isRetypePasswordVisible, setIsRetypePasswordVisible] =
         useState(false);
 
@@ -63,6 +64,8 @@ const RegisterContainer: React.FC<RegisterContainerProps> = () => {
     const variants: Variants = {
         hidden: { opacity: 0, scale: 0.95 },
         visible: { opacity: 1, scale: 1 },
+        focused: { transform: 'TranslateY(-10px)' },
+        nonFocused: { transform: 'TranslateY(0px)' },
     };
 
     return (
@@ -74,89 +77,23 @@ const RegisterContainer: React.FC<RegisterContainerProps> = () => {
                 animate={isInView ? 'visible' : 'hidden'}
                 transition={{ duration: 0.3, delay: 0.3 }}
             >
-                <form className="flex flex-col space-y-6 items-center h-full mt-7">
-                    <motion.input
-                        initial="hidden"
-                        variants={variants}
-                        animate={isInView ? 'visible' : 'hidden'}
-                        transition={{ duration: 0.4, delay: 0.4 }}
+                <form className="flex relative flex-col space-y-6 items-center h-full mt-7">
+                    <CustomInput
                         ref={ref}
+                        isInView={isInView}
+                        handleChange={handleChange}
                         type="email"
-                        name="email"
-                        placeholder="email"
-                        onChange={handleChange}
-                        className="w-full text-gray-800 p-3 rounded-lg bg-gray-400 placeholder:text-gray-500 my-2"
                     />
-                    <motion.div
-                        variants={variants}
-                        initial="hidden"
-                        animate={isInView ? 'visible' : 'hidden'}
-                        transition={{ duration: 0.4, delay: 0.5 }}
-                        className="w-full relative"
-                    >
-                        <input
-                            type={isPasswordVisible ? 'text' : 'password'}
-                            name="password"
-                            placeholder="password"
-                            onChange={handleChange}
-                            className="w-full text-gray-800 p-3 rounded-lg bg-gray-400 placeholder:text-gray-500 my-2"
-                        />
-                        <div
-                            className="absolute inset-y-0 right-0 pr-6 flex items-center cursor-pointer"
-                            onClick={() => {
-                                setIsPasswordVisible((prev) => !prev);
-                            }}
-                        >
-                            {isPasswordVisible && data.password.length > 0 && (
-                                <MdOutlineVisibilityOff
-                                    className="w-6 h-6"
-                                    color="#212223"
-                                />
-                            )}
-                            {!isPasswordVisible && data.password.length > 0 && (
-                                <MdOutlineVisibility
-                                    className="w-6 h-6"
-                                    color="#212223"
-                                />
-                            )}
-                        </div>
-                    </motion.div>
-                    <motion.div
-                        className="w-full relative"
-                        variants={variants}
-                        initial="hidden"
-                        animate={isInView ? 'visible' : 'hidden'}
-                        transition={{ duration: 0.4, delay: 0.6 }}
-                    >
-                        <input
-                            type={isRetypePasswordVisible ? 'text' : 'password'}
-                            name="retypePassword"
-                            placeholder="retypePassword"
-                            onChange={handleChange}
-                            className="w-full text-gray-800 p-3 rounded-lg bg-gray-400 placeholder:text-gray-500 my-2"
-                        />
-                        <div
-                            className="absolute inset-y-0 right-0 pr-6 flex items-center cursor-pointer"
-                            onClick={() => {
-                                setIsRetypePasswordVisible((prev) => !prev);
-                            }}
-                        >
-                            {isRetypePasswordVisible &&
-                                data.retypePassword.length > 0 && (
-                                    <MdOutlineVisibilityOff
-                                        className="w-6 h-6"
-                                        color="#212223"
-                                    />
-                                )}
-                            {!isRetypePasswordVisible &&
-                                data.retypePassword.length > 0 && (
-                                    <MdOutlineVisibility
-                                        className="w-6 h-6"
-                                        color="#212223"
-                                    />
-                                )}
-                        </div>
-                    </motion.div>
+                    <PasswordInput
+                        data={data}
+                        handleChange={handleChange}
+                        isInView={isInView}
+                    />
+                    <PasswordInput
+                        data={data}
+                        handleChange={handleChange}
+                        isInView={isInView}
+                    />
                     <motion.button
                         variants={variants}
                         initial="hidden"

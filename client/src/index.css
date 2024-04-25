@@ -41,8 +41,4 @@ body {
     width: 10px;
     border-radius: 16px;
 }
-/* 
-input:-webkit-autofill{
-    -webkit-box-shadow: 0 0 0 30px  inset;
-    -webkit-text-fill-color: #61677A;
-} */
+
