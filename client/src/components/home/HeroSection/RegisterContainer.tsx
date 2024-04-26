@@ -1,14 +1,11 @@
-import { useState, useRef } from 'react';
-import Alert from '../../common/Alert';
-import registerValidation from '../../../utils/registerValidation';
 import { AnimatePresence, motion, useInView, Variants } from 'framer-motion';
-//icons
-import { MdOutlineVisibility } from 'react-icons/md';
-import { MdOutlineVisibilityOff } from 'react-icons/md';
+import { useRef, useState } from 'react';
+import registerValidation from '../../../utils/registerValidation';
+import Alert from '../../common/Alert';
 //types
 import { Dispatch, SetStateAction } from 'react';
-import CustomInput from './TextInput';
 import PasswordInput from './PasswordInput';
+import CustomInput from './TextInput';
 
 interface RegisterContainerProps {
     isInView?: boolean;
@@ -79,6 +76,7 @@ const RegisterContainer: React.FC<RegisterContainerProps> = () => {
             >
                 <form className="flex relative flex-col space-y-6 items-center h-full mt-7">
                     <CustomInput
+                        data={data}
                         ref={ref}
                         isInView={isInView}
                         handleChange={handleChange}

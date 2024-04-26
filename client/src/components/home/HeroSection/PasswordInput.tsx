@@ -1,5 +1,5 @@
 import { motion, Variants } from 'framer-motion';
-import { forwardRef, useState } from 'react';
+import { forwardRef, useState, useRef } from 'react';
 import { MdOutlineVisibility } from 'react-icons/md';
 import { MdOutlineVisibilityOff } from 'react-icons/md';
 
@@ -25,40 +25,69 @@ const PasswordInput: React.FC<CustomInputProps> = ({
     handleChange,
     data,
 }) => {
+    const inputRef = useRef<HTMLInputElement>(null);
+
     const [isPasswordVisible, setIsPasswordVisible] = useState(false);
+    const [isFocused, setIsFocused] = useState(false);
+
+    const focusToggleHandler = () => {
+        setIsFocused((prev) => !prev);
+    };
+
+    const labelClickHandler = () => {
+        inputRef.current?.focus();
+    };
 
     return (
-        <motion.div
-            variants={variants}
-            initial="hidden"
-            animate={isInView ? 'visible' : 'hidden'}
-            transition={{ duration: 0.4, delay: 0.5 }}
-            className="w-full relative"
-        >
-            <input
-                type={isPasswordVisible ? 'text' : 'password'}
-                name="password"
-                placeholder="password"
-                onChange={handleChange}
-                className="w-full text-gray-800 p-3 rounded-lg bg-gray-400 placeholder:text-gray-500 my-2 focus:ring-2 focus:ring-slate-500 focus:outline-none"
-            />
-            <div
-                className="absolute inset-y-0 right-0 pr-6 flex items-center cursor-pointer"
-                onClick={() => {
-                    setIsPasswordVisible((prev) => !prev);
-                }}
+        <>
+            <motion.div
+                variants={variants}
+                initial="hidden"
+                animate={isInView ? 'visible' : 'hidden'}
+                transition={{ duration: 0.4, delay: 0.5 }}
+                className="w-full relative"
             >
-                {isPasswordVisible && data.password.length > 0 && (
-                    <MdOutlineVisibilityOff
-                        className="w-6 h-6"
-                        color="#212223"
-                    />
-                )}
-                {!isPasswordVisible && data.password.length > 0 && (
-                    <MdOutlineVisibility className="w-6 h-6" color="#212223" />
-                )}
-            </div>
-        </motion.div>
+                <motion.label
+                    className={`absolute left-2 text-gray-300 select-none cursor-text ${
+                        isFocused || data.password.length > 0
+                            ? 'translate-y-[-20px]'
+                            : 'translate-y-[20px] text-gray-500'
+                    } transition-transform duration-300 ease-in-out`}
+                    htmlFor="password"
+                    onClick={labelClickHandler}
+                >
+                    Password
+                </motion.label>
+                <input
+                    type={isPasswordVisible ? 'text' : 'password'}
+                    name="password"
+                    ref={inputRef}
+                    onFocus={focusToggleHandler}
+                    onBlur={focusToggleHandler}
+                    onChange={handleChange}
+                    className="w-full text-gray-800 p-3 rounded-lg bg-gray-400 placeholder:text-gray-500 my-2 focus:ring-2 focus:ring-slate-500 focus:outline-none"
+                />
+                <div
+                    className="absolute inset-y-0 right-0 pr-6 flex items-center cursor-pointer"
+                    onClick={() => {
+                        setIsPasswordVisible((prev) => !prev);
+                    }}
+                >
+                    {isPasswordVisible && data.password.length > 0 && (
+                        <MdOutlineVisibilityOff
+                            className="w-6 h-6"
+                            color="#212223"
+                        />
+                    )}
+                    {!isPasswordVisible && data.password.length > 0 && (
+                        <MdOutlineVisibility
+                            className="w-6 h-6"
+                            color="#212223"
+                        />
+                    )}
+                </div>
+            </motion.div>
+        </>
     );
 };
 

@@ -1,5 +1,5 @@
 import { motion, Variants } from 'framer-motion';
-import { forwardRef, RefObject } from 'react';
+import { forwardRef, RefObject, useState, useRef } from 'react';
 
 const variants: Variants = {
     hidden: { opacity: 0, scale: 0.95 },
@@ -12,15 +12,42 @@ interface CustomInputProps {
     isInView?: boolean;
     handleChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
     type: string;
+    data: {
+        email: string;
+        password: string;
+        retypePassword: string;
+    };
 }
 
 const CustomInput = forwardRef<HTMLInputElement, CustomInputProps>(
-    ({ isInView, handleChange , type }, ref) => {
+    ({ isInView, handleChange, type, data }, ref) => {
+        const inputRef = useRef<HTMLInputElement>(null);
+
+        const [isFocused, setIsFocused] = useState(false);
+
+        const focusToggleHandler = () => {
+            setIsFocused((prev) => !prev);
+        };
+
+        const labelClickHandler = () => {
+            inputRef.current?.focus();
+        };
+
         return (
             <>
                 <motion.label
-                    className="absolute left-2 text-gray-300"
+                    className={`absolute left-2 text-gray-300 select-none cursor-text ${
+                        isFocused || data.email.length > 0
+                            ? 'translate-y-0 '
+                            : 'translate-y-[35px] text-gray-500'
+                    } transition-transform duration-300 ease-in-out`}
                     htmlFor="email"
+                    ref={
+                        ref as React.RefObject<
+                            HTMLInputElement & HTMLLabelElement
+                        >
+                    }
+                    onClick={labelClickHandler}
                 >
                     E-mail
                 </motion.label>
@@ -29,8 +56,9 @@ const CustomInput = forwardRef<HTMLInputElement, CustomInputProps>(
                     variants={variants}
                     animate={isInView ? 'visible' : 'hidden'}
                     transition={{ duration: 0.4, delay: 0.4 }}
-                    ref={ref}
-                    onFocus={() => console.log('focused')}
+                    onFocus={focusToggleHandler}
+                    onBlur={focusToggleHandler}
+                    ref={inputRef}
                     type={type}
                     name={type}
                     onChange={handleChange}
