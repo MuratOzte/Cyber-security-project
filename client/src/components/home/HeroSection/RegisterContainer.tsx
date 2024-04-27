@@ -22,8 +22,6 @@ const RegisterContainer: React.FC<RegisterContainerProps> = () => {
     });
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState(null);
-    const [isRetypePasswordVisible, setIsRetypePasswordVisible] =
-        useState(false);
 
     const ref = useRef(null);
     const isInView = useInView(ref);
@@ -84,12 +82,16 @@ const RegisterContainer: React.FC<RegisterContainerProps> = () => {
                     />
                     <PasswordInput
                         data={data}
+                        name='password'
                         handleChange={handleChange}
                         isInView={isInView}
+                        label='Password'
                     />
                     <PasswordInput
                         data={data}
+                        name='retypePassword'
                         handleChange={handleChange}
+                        label='Retype Password'
                         isInView={isInView}
                     />
                     <motion.button

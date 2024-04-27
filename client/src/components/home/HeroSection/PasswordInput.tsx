@@ -13,6 +13,8 @@ const variants: Variants = {
 interface CustomInputProps {
     isInView?: boolean;
     handleChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+    label: string;
+    name: 'password' | 'retypePassword';
     data: {
         email: string;
         password: string;
@@ -24,6 +26,8 @@ const PasswordInput: React.FC<CustomInputProps> = ({
     isInView,
     handleChange,
     data,
+    name,
+    label,
 }) => {
     const inputRef = useRef<HTMLInputElement>(null);
 
@@ -49,18 +53,18 @@ const PasswordInput: React.FC<CustomInputProps> = ({
             >
                 <motion.label
                     className={`absolute left-2 text-gray-300 select-none cursor-text ${
-                        isFocused || data.password.length > 0
+                        isFocused || data[name].length > 0
                             ? 'translate-y-[-20px]'
                             : 'translate-y-[20px] text-gray-500'
                     } transition-transform duration-300 ease-in-out`}
-                    htmlFor="password"
+                    htmlFor={name}
                     onClick={labelClickHandler}
                 >
-                    Password
+                    {label}
                 </motion.label>
                 <input
                     type={isPasswordVisible ? 'text' : 'password'}
-                    name="password"
+                    name={name}
                     ref={inputRef}
                     onFocus={focusToggleHandler}
                     onBlur={focusToggleHandler}
@@ -73,13 +77,13 @@ const PasswordInput: React.FC<CustomInputProps> = ({
                         setIsPasswordVisible((prev) => !prev);
                     }}
                 >
-                    {isPasswordVisible && data.password.length > 0 && (
+                    {isPasswordVisible && data[name].length > 0 && (
                         <MdOutlineVisibilityOff
                             className="w-6 h-6"
                             color="#212223"
                         />
                     )}
-                    {!isPasswordVisible && data.password.length > 0 && (
+                    {!isPasswordVisible && data[name].length > 0 && (
                         <MdOutlineVisibility
                             className="w-6 h-6"
                             color="#212223"
