@@ -82,16 +82,16 @@ const RegisterContainer: React.FC<RegisterContainerProps> = () => {
                     />
                     <PasswordInput
                         data={data}
-                        name='password'
+                        name="password"
                         handleChange={handleChange}
                         isInView={isInView}
-                        label='Password'
+                        label="Password"
                     />
                     <PasswordInput
                         data={data}
-                        name='retypePassword'
+                        name="retypePassword"
                         handleChange={handleChange}
-                        label='Retype Password'
+                        label="Retype Password"
                         isInView={isInView}
                     />
                     <motion.button
@@ -125,10 +125,16 @@ const RegisterContainer: React.FC<RegisterContainerProps> = () => {
                         )}
                         {!isLoading && 'Register'}
                     </motion.button>
-                    <p className="text-gray-400 text-xl cursor-pointer">
+                    <motion.p
+                        variants={variants}
+                        initial="hidden"
+                        animate={isInView ? 'visible' : 'hidden'}
+                        transition={{ duration: 0.4, delay: 0.85 }}
+                        className="text-gray-400 text-xl cursor-pointer"
+                    >
                         Already have an account?{' '}
                         <span className="text-gray-300">Sign in</span>
-                    </p>
+                    </motion.p>
                     <AnimatePresence>
                         {error && (
                             <motion.div

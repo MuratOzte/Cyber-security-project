@@ -26,7 +26,6 @@ const LoginContainer: React.FC<LoginContainerProps> = ({
     const [isPasswordVisible, setIsPasswordVisible] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
 
-
     const handleChange = () => {};
 
     const handleSubmit = () => {};
@@ -110,10 +109,16 @@ const LoginContainer: React.FC<LoginContainerProps> = ({
                 )}
                 {!isLoading && 'Register'}
             </motion.button>
-            <p className="text-gray-400 text-xl cursor-pointer">
+            <motion.p
+                variants={variants}
+                initial="hidden"
+                animate={isInView ? 'visible' : 'hidden'}
+                transition={{ duration: 0.4, delay: 0.85 }}
+                className="text-gray-400 text-xl cursor-pointer"
+            >
                 Already have an account?{' '}
                 <span className="text-gray-300">Sign in</span>
-            </p>
+            </motion.p>
         </form>
     );
 };
