@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useState, Dispatch } from 'react';
+import { motion } from 'framer-motion';
 
 const Attacks = [
     {
@@ -15,17 +16,29 @@ const Attacks = [
     },
 ];
 
-const Select = () => {
-    const [selectedAttacks, setSelectedAttacks] = useState([]);
+interface SelectProps {
+    isInitial: boolean;
+    setSelectedAttacks: Dispatch<React.SetStateAction<string[]>>;
+    selectedAttacks: string[];
+}
 
+const Select: React.FC<SelectProps> = ({
+    isInitial,
+    setSelectedAttacks,
+    selectedAttacks,
+}) => {
     return (
-        <div className="flex justify-center mt-5 w-2/3">
+        <motion.div
+            animate={isInitial ? { opacity: 1 } : { opacity: 0 }}
+            transition={{ duration: 0.75 }}
+            className="flex justify-center mt-5 w-2/3"
+        >
             {Attacks.map((attack) => {
                 return (
                     <div
                         key={attack.name}
                         onClick={() => {
-                            setSelectedAttacks((prev) => {
+                            setSelectedAttacks((prev: string[]) => {
                                 if (prev.includes(attack.name)) {
                                     return prev.filter(
                                         (item) => item !== attack.name
@@ -50,7 +63,7 @@ const Select = () => {
                     </div>
                 );
             })}
-        </div>
+        </motion.div>
     );
 };
 

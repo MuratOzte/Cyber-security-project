@@ -16,9 +16,11 @@ const variants = {
 
 const Attack = () => {
     const [isInitial, setIsInitial] = useState(true);
+    const [selectedAttacks, setSelectedAttacks] = useState([]);
 
     const toggler = () => {
         setIsInitial((prev) => !prev);
+        console.log(isInitial);
     };
 
     return (
@@ -33,8 +35,14 @@ const Attack = () => {
             >
                 <SearchBox />
             </motion.div>
-            <div className='flex justify-center' >
-                <Select />
+            <div
+                className={`flex justify-center items-center transition-all ease-out`}
+            >
+                <Select
+                    isInitial={isInitial}
+                    setSelectedAttacks={setSelectedAttacks}
+                    selectedAttacks={selectedAttacks}
+                />
             </div>
             <button onClick={toggler}>Toggle</button>
         </div>
