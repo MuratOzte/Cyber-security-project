@@ -1,5 +1,11 @@
+import SearchBox from './SearchBox';
+
 const Attack = () => {
-    return <h1>Attack Section</h1>
-}
- 
+    return (
+        <div className="w-full flex justify-center">
+            <SearchBox />
+        </div>
+    );
+};
+
 export default Attack;
