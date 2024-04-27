@@ -20,7 +20,7 @@ const Attack = () => {
 
     const toggler = () => {
         setIsInitial((prev) => !prev);
-        console.log(isInitial);
+        console.log(selectedAttacks);
     };
 
     return (
