@@ -6,7 +6,7 @@ import Filter from './Filter';
 
 const variants = {
     searchPosition: {
-        marginTop: 100,
+        marginTop: 150,
         width: '100%',
     },
     loadingPosition: {
@@ -36,7 +36,10 @@ const Attack = () => {
             >
                 <SearchBox />
             </motion.div>
-            <motion.div className="w-2/3 h-60">
+            <motion.div 
+            animate={{ opacity: isInitial ? 1 : 0 }}
+            transition={{ duration: 0.5 }}
+            className="w-2/3 h-60">
                 <Filter>
                     <Select
                         isInitial={isInitial}
@@ -45,16 +48,7 @@ const Attack = () => {
                     />
                 </Filter>
             </motion.div>
-            {/* <div
-                className={`flex justify-center items-center transition-all ease-out`}
-            >
-                <Select
-                    isInitial={isInitial}
-                    setSelectedAttacks={setSelectedAttacks}
-                    selectedAttacks={selectedAttacks}
-                />
-            </div> */}
-            {/* <button onClick={toggler}>Toggle</button> */}
+            <button onClick={toggler}>Toggle</button>
         </div>
     );
 };

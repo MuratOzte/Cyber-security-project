@@ -18,12 +18,12 @@ const Tooltip: React.FC<TooltipProps> = ({ text, children }) => {
             onMouseEnter={toggleTooltip}
             onMouseLeave={toggleTooltip}
         >
+            {children}
             {showTooltip && (
-                <div className="absolute top-[-30px] left-[-5px] bg-gray-600 p-1 rounded-xl ">
+                <div className="absolute top-[40px] left-[-2px] bg-gray-600 p-[2px] text-xs rounded-xl">
                     {text}
                 </div>
             )}
-            {children}
         </div>
     );
 };
