@@ -15,9 +15,11 @@ const Select: React.FC<SelectProps> = ({
 }) => {
     return (
         <motion.div
-            animate={isInitial ? { opacity: 1 } : { opacity: 0 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
             transition={{ duration: 0.75 }}
-            className="flex justify-center mt-5 w-1/3 gap-10"
+            className="flex justify-center mt-5 w-1/3 space-x-[8%] "
         >
             {Attacks.map((attack) => {
                 return (
@@ -34,7 +36,7 @@ const Select: React.FC<SelectProps> = ({
                                 }
                             });
                         }}
-                        className={`flex items-center flex-col text-center w-2/12 m-auto rounded-lg min-w-32 bg-gray-100 hover:bg-gray-200 cursor-pointer transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-110 text-gray-700 text-lg uppercase font-sans shadow-green-500 shadow-[rgba(6,_24,_44,_0.4)_0px_0px_0px_2px,_rgba(6,_24,_44,_0.65)_0px_4px_6px_-1px,_rgba(255,_255,_255,_0.08)_0px_1px_0px_inset] ${
+                        className={`flex items-center flex-col text-center w-2/12 m-auto rounded-lg min-w-32 bg-gray-100 hover:bg-gray-200 cursor-pointer transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-110 text-gray-700 text-lg uppercase font-sans shadow-green-600 shadow-[rgba(6,_24,_44,_0.4)_0px_0px_0px_2px,_rgba(6,_24,_44,_0.65)_0px_4px_6px_-1px,_rgba(255,_255,_255,_0.08)_0px_1px_0px_inset] ${
                             !selectedAttacks.includes(attack.title)
                                 ? 'shadow-none'
                                 : null

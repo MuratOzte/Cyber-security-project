@@ -6,7 +6,7 @@ import Filter from './Filter';
 
 const variants = {
     searchPosition: {
-        marginTop: 150,
+        marginTop: 100,
         width: '100%',
     },
     loadingPosition: {
@@ -37,7 +37,13 @@ const Attack = () => {
                 <SearchBox />
             </motion.div>
             <motion.div className="w-2/3 h-60">
-                <Filter />
+                <Filter>
+                    <Select
+                        isInitial={isInitial}
+                        setSelectedAttacks={setSelectedAttacks}
+                        selectedAttacks={selectedAttacks}
+                    />
+                </Filter>
             </motion.div>
             {/* <div
                 className={`flex justify-center items-center transition-all ease-out`}
