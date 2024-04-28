@@ -1,0 +1,32 @@
+[
+    {
+        "title": "katana",
+        "description": "A katana is a Japanese sword characterized by a curved, single-edged blade with a circular or squared guard and long grip to accommodate two hands.",
+        "image": "https://i.ytimg.com/vi/r5sb9vpgDuI/maxresdefault.jpg"
+    },
+    {
+        "title": "wakizashi",
+        "description": "A wakizashi is a traditional Japanese sword with a shorter blade than a katana, typically used as a backup weapon or for close-quarters combat.",
+        "image": "https://i.ytimg.com/vi/r5sb9vpgDuI/maxresdefault.jpg"
+    },
+    {
+        "title": "tanto",
+        "description": "A tanto is a Japanese dagger with a short blade and a single or double edge, typically used for stabbing or slashing in close combat.",
+        "image": "https://i.ytimg.com/vi/r5sb9vpgDuI/maxresdefault.jpg"
+    },
+    {
+        "title": "naginata",
+        "description": "A naginata is a traditional Japanese pole weapon with a curved, single-edged blade mounted on a long shaft, typically used by samurai warriors.",
+        "image": "https://i.ytimg.com/vi/r5sb9vpgDuI/maxresdefault.jpg"
+    },
+    {
+        "title": "yari",
+        "description": "A yari is a traditional Japanese spear with a straight, double-edged blade mounted on a long shaft, typically used by samurai warriors for thrusting and slashing.",
+        "image": "https://i.ytimg.com/vi/r5sb9vpgDuI/maxresdefault.jpg"
+    },
+    {
+        "title": "ninja-to",
+        "description": "A ninja to is a traditional Japanese sword with a straight, single-edged blade and a square guard, typically used by ninjas for stealthy assassinations.",
+        "image": "https://i.ytimg.com/vi/r5sb9vpgDuI/maxresdefault.jpg"
+    }
+]

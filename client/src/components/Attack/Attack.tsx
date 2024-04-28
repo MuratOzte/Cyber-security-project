@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import SearchBox from './SearchBox';
 import { useState } from 'react';
 import Select from './Select';
+import Filter from './Filter';
 
 const variants = {
     searchPosition: {
@@ -35,7 +36,10 @@ const Attack = () => {
             >
                 <SearchBox />
             </motion.div>
-            <div
+            <motion.div className="w-2/3 h-60">
+                <Filter />
+            </motion.div>
+            {/* <div
                 className={`flex justify-center items-center transition-all ease-out`}
             >
                 <Select
@@ -43,8 +47,8 @@ const Attack = () => {
                     setSelectedAttacks={setSelectedAttacks}
                     selectedAttacks={selectedAttacks}
                 />
-            </div>
-            <button onClick={toggler}>Toggle</button>
+            </div> */}
+            {/* <button onClick={toggler}>Toggle</button> */}
         </div>
     );
 };

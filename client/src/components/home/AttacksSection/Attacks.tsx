@@ -1,61 +1,11 @@
 import AttackItem from './AttackItem';
-import {
-    motion,
-    useScroll,
-    useTransform,
-    useInView,
-    useMotionValue,
-} from 'framer-motion';
-import { useRef } from 'react';
 
-const attacks = [
-    {
-        title: 'katana',
-        description:
-            'A katana is a Japanese sword characterized by a curved, single-edged blade with a circular or squared guard and long grip to accommodate two hands.',
-        image: 'https://i.ytimg.com/vi/r5sb9vpgDuI/maxresdefault.jpg',
-    },
-    {
-        title: 'katana',
-        description:
-            'A katana is a Japanese sword characterized by a curved, single-edged blade with a circular or squared guard and long grip to accommodate two hands.',
-        image: 'https://i.ytimg.com/vi/r5sb9vpgDuI/maxresdefault.jpg',
-    },
-    {
-        title: 'katana',
-        description:
-            'A katana is a Japanese sword characterized by a curved, single-edged blade with a circular or squared guard and long grip to accommodate two hands.',
-        image: 'https://i.ytimg.com/vi/r5sb9vpgDuI/maxresdefault.jpg',
-    },
-    {
-        title: 'katana',
-        description:
-            'A katana is a Japanese sword characterized by a curved, single-edged blade with a circular or squared guard and long grip to accommodate two hands.',
-        image: 'https://i.ytimg.com/vi/r5sb9vpgDuI/maxresdefault.jpg',
-    },
-    {
-        title: 'katana',
-        description:
-            'A katana is a Japanese sword characterized by a curved, single-edged blade with a circular or squared guard and long grip to accommodate two hands.',
-        image: 'https://i.ytimg.com/vi/r5sb9vpgDuI/maxresdefault.jpg',
-    },
-    {
-        title: 'katana',
-        description:
-            'A katana is a Japanese sword characterized by a curved, single-edged blade with a circular or squared guard and long grip to accommodate two hands.',
-        image: 'https://i.ytimg.com/vi/r5sb9vpgDuI/maxresdefault.jpg',
-    },
-];
+import attacks from '../../../data/attacks.json';
 
 const Attacks = () => {
-
-    
-
-   return (
+    return (
         <div className="h-screen w-full">
-            <div
-                className="flex flex-wrap p-12 justify-center h-full w-full flex-row"
-            >
+            <div className="flex flex-wrap p-12 justify-center h-full w-full flex-row">
                 {attacks.map((attack, index) => (
                     <AttackItem
                         key={index + 'attack'}

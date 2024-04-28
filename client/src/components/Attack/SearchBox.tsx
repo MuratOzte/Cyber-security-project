@@ -6,7 +6,6 @@ import { useState } from 'react';
 //components
 import Loading from '../common/Loading';
 
-
 const SearchBox = () => {
     const [state, setState] = useState({
         isFocused: false,
@@ -26,9 +25,8 @@ const SearchBox = () => {
         });
     };
 
-
     return (
-        <div className=" flex justify-center w-2/3 p-2">
+        <div className=" flex justify-center w-2/3 p-2 pb-0">
             <input
                 onFocus={focusToggleHandler}
                 onBlur={focusToggleHandler}
