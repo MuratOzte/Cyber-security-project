@@ -6,6 +6,7 @@ import Nav from './components/nav/nav.tsx';
 import Attack from './components/Attack/Attack.tsx';
 
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { Providers } from './store/Provider.tsx';
 
 const router = createBrowserRouter([
     {
@@ -20,7 +21,9 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
     <React.StrictMode>
-        <Nav />
-        <RouterProvider router={router} />
+        <Providers>
+            <Nav />
+            <RouterProvider router={router} />
+        </Providers>
     </React.StrictMode>
 );

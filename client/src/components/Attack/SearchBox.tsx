@@ -1,14 +1,11 @@
 //icons
-import { IoMdSearch } from 'react-icons/io';
+import { IoMdClose, IoMdSearch } from 'react-icons/io';
 import { MdOutlineDone } from 'react-icons/md';
-import { IoMdClose } from 'react-icons/io';
 //hooks
 import {
     ChangeEventHandler,
-    HTMLInputTypeAttribute,
     MouseEventHandler,
-    UIEventHandler,
-    useState,
+    useState
 } from 'react';
 //components
 import Loading from '../common/Loading';
