@@ -4,6 +4,7 @@ const dotenv = require("dotenv");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const authRoutes = require("../server/routes/auth");
+const testRoutes = require("../server/routes/test");
 
 dotenv.config();
 
@@ -28,6 +29,7 @@ app.use((err, req, res, next) => {
 });
 
 app.use("/auth", authRoutes);
+app.use("/test", testRoutes);
 
 mongoose.connect(URI).then((result) => {
   http.listen(PORT), console.log(`Server Listening port ${PORT}`);
