@@ -1,11 +1,15 @@
 import { createSlice } from '@reduxjs/toolkit';
 
+export interface Attack {
+    name: string;
+}
+
 export interface AttackSlice {
-    attacks: Array<string>;
+    selectedAttacks: Array<Attack>;
 }
 
 const initialState: AttackSlice = {
-    attacks: [],
+    selectedAttacks: [],
 };
 
 const attackSlice = createSlice({
@@ -13,14 +17,14 @@ const attackSlice = createSlice({
     initialState,
     reducers: {
         addAttack(state, action) {
-            state.attacks.push(action.payload);
+            state.selectedAttacks.push(action.payload);
         },
         removeAttack(state, action) {
-            state.attacks = state.attacks.filter(
+            state.selectedAttacks = state.selectedAttacks.filter(
                 (attack) => attack !== action.payload
             );
         },
-    },  
+    },
 });
 
 export default attackSlice;
