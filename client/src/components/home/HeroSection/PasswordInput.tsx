@@ -14,11 +14,11 @@ interface CustomInputProps {
     isInView?: boolean;
     handleChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
     label: string;
-    name: 'password' | 'retypePassword';
+    name: 'password' | 'comparePassword';
     data: {
         email: string;
         password: string;
-        retypePassword: string;
+        comparePassword: string;
     };
 }
 

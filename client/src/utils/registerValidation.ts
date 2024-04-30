@@ -1,17 +1,17 @@
 interface Data {
     email: string;
     password: string;
-    retypePassword: string;
+    comparePassword: string;
 }
 
 const validation = (data: Data) => {
-    if (data.password !== data.retypePassword) {
+    if (data.password !== data.comparePassword) {
         return 'Passwords do not match';
     }
     if (
         data.email === '' ||
         data.password === '' ||
-        data.retypePassword === ''
+        data.comparePassword === ''
     ) {
         return 'All fields are required';
     }

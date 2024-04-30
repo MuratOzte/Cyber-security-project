@@ -18,7 +18,7 @@ const RegisterContainer: React.FC<RegisterContainerProps> = () => {
     const [data, setData] = useState({
         email: '',
         password: '',
-        retypePassword: '',
+        comparePassword: '',
     });
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState(null);
@@ -43,13 +43,16 @@ const RegisterContainer: React.FC<RegisterContainerProps> = () => {
             return;
         }
 
-        const responseData = fetch('http://localhost:3000/register', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(data),
-        });
+        const responseData = await fetch(
+            'http://localhost:3000/auth/register',
+            {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data),
+            }
+        );
 
         console.log(responseData);
 
@@ -89,7 +92,7 @@ const RegisterContainer: React.FC<RegisterContainerProps> = () => {
                     />
                     <PasswordInput
                         data={data}
-                        name="retypePassword"
+                        name="comparePassword"
                         handleChange={handleChange}
                         label="Retype Password"
                         isInView={isInView}

@@ -15,7 +15,7 @@ interface CustomInputProps {
     data: {
         email: string;
         password: string;
-        retypePassword: string;
+        comparePassword: string;
     };
 }
 
