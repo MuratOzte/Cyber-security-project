@@ -8,10 +8,10 @@ function App() {
                 <div className="snap-center snap-always">
                     <Hero />
                 </div>
-                <div className="snap-center snap-always">
+                <div className="snap-center snap-always" id='attacks'>
                     <Attacks />
                 </div>
-                <div className="snap-center snap-always">
+                <div className="snap-center snap-always" id='contact'>
                     <Contact />
                 </div>
             </div>
