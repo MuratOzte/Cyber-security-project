@@ -4,6 +4,8 @@ import { MdOutlineVisibility } from 'react-icons/md';
 import { MdOutlineVisibilityOff } from 'react-icons/md';
 import { Dispatch, SetStateAction } from 'react';
 
+import { loginHandler } from '../../../utils/auth';
+
 interface LoginContainerProps {
     isInView?: boolean;
     variants?: any;
@@ -26,12 +28,17 @@ const LoginContainer: React.FC<LoginContainerProps> = ({
     const [isPasswordVisible, setIsPasswordVisible] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
 
-    const handleChange = () => {};
-
-    const handleSubmit = () => {};
+    const handleSubmit = async (e: any) => {
+        e.preventDefault();
+        setIsLoading(true);
+        //kasıtlı olarak 2 saniye bekletme
+        await new Promise((resolve) => setTimeout(resolve, 2000));
+        loginHandler(data.email, data.password);
+        setIsLoading(false);
+    };
 
     return (
-        <form className="flex flex-col space-y-6 items-center mt-[20%] w-2/3 rounded-xl bg-gray-600 p-5">
+        <form className="flex flex-col space-y-6 items-center w-2/3 rounded-xl bg-gray-600 p-5">
             <motion.input
                 initial="hidden"
                 variants={variants}
@@ -41,7 +48,7 @@ const LoginContainer: React.FC<LoginContainerProps> = ({
                 type="email"
                 name="email"
                 placeholder="email"
-                onChange={handleChange}
+                onChange={(e) => setData({ ...data, email: e.target.value })}
                 className="w-full text-gray-800 p-3 rounded-lg bg-gray-400 placeholder:text-gray-500 my-2 focus:ring-2 focus:ring-slate-500 focus:outline-none"
             />
             <motion.div
@@ -55,7 +62,9 @@ const LoginContainer: React.FC<LoginContainerProps> = ({
                     type={isPasswordVisible ? 'text' : 'password'}
                     name="password"
                     placeholder="password"
-                    onChange={handleChange}
+                    onChange={(e) =>
+                        setData({ ...data, password: e.target.value })
+                    }
                     className="w-full text-gray-800 p-3 rounded-lg bg-gray-400 placeholder:text-gray-500 my-2 focus:ring-2 focus:ring-slate-500 focus:outline-none"
                 />
                 <div
@@ -90,7 +99,7 @@ const LoginContainer: React.FC<LoginContainerProps> = ({
                     <div role="status">
                         <svg
                             aria-hidden="true"
-                            className="w-8 h-8 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600"
+                            className="w-8 h-6 text-gray-200 animate-spin dark:text-gray-600 fill-white"
                             viewBox="0 0 100 101"
                             fill="none"
                             xmlns="http://www.w3.org/2000/svg"

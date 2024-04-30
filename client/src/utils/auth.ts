@@ -4,13 +4,13 @@ interface RegisterModel {
     comparePassword: string;
 }
 
-export const registerHandler = ({
+export const registerHandler = async ({
     email,
     password,
     comparePassword,
 }: RegisterModel) => {
     try {
-        fetch('http://localhost:3000/auth/register', {
+        const response = await fetch('http://localhost:3000/auth/register', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -21,14 +21,20 @@ export const registerHandler = ({
                 comparePassword,
             }),
         });
+
+        if (!response.ok) {
+            throw new Error('Register request failed');
+        }
+
+        console.log('Registration successful');
     } catch (error) {
         console.log(error);
     }
 };
 
-export const loginHandler = ({ email, password }: RegisterModel) => {
+export const loginHandler = async (email: string, password: string) => {
     try {
-        fetch('http://localhost:3000/auth/login', {
+        const response = await fetch('http://localhost:3000/auth/login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -38,6 +44,13 @@ export const loginHandler = ({ email, password }: RegisterModel) => {
                 password,
             }),
         });
+
+        if (!response.ok) {
+            throw new Error('Login request failed');
+        }
+
+        const data = await response.json();
+        console.log(data);
     } catch (error) {
         console.log(error);
     }
