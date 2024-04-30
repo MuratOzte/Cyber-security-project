@@ -41,10 +41,7 @@ const HeroText = () => {
                     exit={{ opacity: 0 }}
                     transition={{ duration: 0.3, delay: 0.25 }}
                 >
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Debitis maiores optio ex dolore, hic quis dolores aliquid
-                    nemo repellendus commodi, enim et consequatur. Fuga quod a
-                    aut dolor error et.
+                    Bura Biraz Yamuk Oldu Ama Düzelticem Albayrak Family &#x2764;
                 </motion.p>
             </div>
         </div>

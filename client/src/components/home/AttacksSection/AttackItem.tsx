@@ -45,7 +45,7 @@ const AttackItem: React.FC<AttackItemProps> = ({
                 transition={{ duration: 0.8, delay: index * 0.05, bounce: 0.2 }}
                 exit="hidden"
                 variants={variants}
-                className="bg-gray-600 p-8 flex w-[30%] h-min justify-between items-center rounded-xl mx-auto mb-8"
+                className="bg-gray-600 p-8 flex w-[30%] h-[240px] justify-between items-center rounded-xl mx-auto mb-2"
             >
                 <div className="h-full ">
                     <h1 className="text-4xl text-gray-100 uppercase mb-3">
