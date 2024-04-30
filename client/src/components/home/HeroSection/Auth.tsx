@@ -6,7 +6,7 @@ const Auth = () => {
     const [isLogin, setIsLogin] = useState(true);
 
     return (
-        <div className="select-none">
+        <div className="select-none w-full flex justify-center h-[350px] items-center">
             {isLogin ? (
                 <LoginContainer setIsLogin={setIsLogin} />
             ) : (

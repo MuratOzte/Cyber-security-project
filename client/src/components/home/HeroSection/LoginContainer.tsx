@@ -31,7 +31,7 @@ const LoginContainer: React.FC<LoginContainerProps> = ({
     const handleSubmit = () => {};
 
     return (
-        <form className="flex flex-col space-y-6 items-center h-full mt-7">
+        <form className="flex flex-col space-y-6 items-center mt-[20%] w-2/3 rounded-xl bg-gray-600 p-5">
             <motion.input
                 initial="hidden"
                 variants={variants}

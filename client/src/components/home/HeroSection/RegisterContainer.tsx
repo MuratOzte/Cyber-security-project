@@ -67,7 +67,7 @@ const RegisterContainer: React.FC<RegisterContainerProps> = () => {
     };
 
     return (
-        <div className="w-1/2 h-5/6 p-12 px-4 sm:px-16">
+        <div className="w-2/3 h-5/6 p-12 px-4 sm:px-16">
             <motion.div
                 className="w-full h-full rounded-xl bg-gray-600 p-8 shadow-lg"
                 variants={variants}
