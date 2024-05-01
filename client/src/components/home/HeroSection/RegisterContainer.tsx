@@ -64,9 +64,9 @@ const RegisterContainer: React.FC<RegisterContainerProps> = () => {
             setIsLoading(false);
             return;
         }
-        navigate('/attack');
 
         setIsLoading(false);
+        return navigate('/attack');
     };
 
     const variants: Variants = {

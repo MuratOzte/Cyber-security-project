@@ -1,22 +1,41 @@
-import TextInput from '../home/HeroSection/TextInput';
+import { useState } from 'react';
+import { motion } from 'framer-motion';
 
 const ModalBody = () => {
+    const [isFocused, setIsFocused] = useState({
+        email: false,
+        password: false,
+    });
+
     return (
-        <div className="p-4 md:p-5">
+        <div className="p-4 md:p-5 pt-2">
             <form className="space-y-4" action="#">
                 <div>
-                    <label
+                    <motion.label
+                        onClick={(e) =>
+                            document.getElementById('email').focus()
+                        }
+                        initial={{ y: 45 }}
+                        animate={isFocused.email ? { y: 0 } : null}
+                        transition={{ duration: 0.2 }}
                         htmlFor="email"
-                        className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                        className={`block mb-2 font-medium ml-2 cursor-text text-md ${
+                            !isFocused.email ? 'text-gray-800' : 'text-gray-300'
+                        }`}
                     >
-                        Your email
-                    </label>
+                        E-mail
+                    </motion.label>
                     <input
+                        onFocus={(e) =>
+                            setIsFocused((prev) => ({ ...prev, email: true }))
+                        }
+                        onBlurCapture={(e) =>
+                            setIsFocused((prev) => ({ ...prev, email: false }))
+                        }
                         type="email"
                         name="email"
                         id="email"
-                        className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                        placeholder="name@company.com"
+                        className="block w-full text-gray-800 p-3 rounded-lg bg-gray-400 placeholder:text-gray-500 my-2 focus:ring-2 focus:ring-slate-500 focus:outline-none"
                         required
                     />
                 </div>
@@ -28,38 +47,24 @@ const ModalBody = () => {
                         Your password
                     </label>
                     <input
+                        onFocus={(e) =>
+                            setIsFocused((prev) => ({
+                                ...prev,
+                                password: true,
+                            }))
+                        }
+                        onBlurCapture={(e) =>
+                            setIsFocused((prev) => ({
+                                ...prev,
+                                password: false,
+                            }))
+                        }
                         type="password"
                         name="password"
                         id="password"
-                        placeholder="••••••••"
                         className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
                         required
                     />
-                </div>
-                <div className="flex justify-between">
-                    <div className="flex items-start">
-                        <div className="flex items-center h-5">
-                            <input
-                                id="remember"
-                                type="checkbox"
-                                value=""
-                                className="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-600 dark:border-gray-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800"
-                                required
-                            />
-                        </div>
-                        <label
-                            htmlFor="remember"
-                            className="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-                        >
-                            Remember me
-                        </label>
-                    </div>
-                    <a
-                        href="#"
-                        className="text-sm text-blue-700 hover:underline dark:text-blue-500"
-                    >
-                        Lost Password?
-                    </a>
                 </div>
                 <button
                     type="submit"

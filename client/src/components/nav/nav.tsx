@@ -6,6 +6,7 @@ import { RootState } from '../../store';
 
 const Nav = () => {
     const dispatch = useDispatch();
+
     const ui = useSelector((state: RootState) => state.ui);
 
     const loginModalToggleHandler = () => {
@@ -16,7 +17,10 @@ const Nav = () => {
         <>
             <nav className="bg-nav w-full h-full">
                 <div className="container mx-auto flex justify-between items-center h-full px-16 py-2">
-                    <div className="flex items-center">
+                    <div
+                        className="flex items-center"
+                        onClick={() => (window.location.href = '/')}
+                    >
                         <a href="/" className="text-white text-2xl font-bold">
                             <img src={logo} alt="logo" className="w-16" />
                         </a>
