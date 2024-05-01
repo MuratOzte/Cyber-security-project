@@ -1,8 +1,17 @@
 import logo from '../../assets/logo.png';
-import { useNavigate } from 'react-router';
-import { Link } from 'react-router-dom';
+import LoginModal from '../Login/LoginModal';
+import { useSelector, useDispatch } from 'react-redux';
+import uiSlice from '../../store/slices/uiSlice';
+import { RootState } from '../../store';
 
 const Nav = () => {
+    const dispatch = useDispatch();
+    const ui = useSelector((state: RootState) => state.ui);
+
+    const loginModalToggleHandler = () => {
+        dispatch(uiSlice.actions.setLoginModal(!ui.isLoginModalOpen));
+    };
+
     return (
         <>
             <nav className="bg-nav w-full h-full">
@@ -20,7 +29,10 @@ const Nav = () => {
                         <a href="/services" className="text-white mr-5">
                             Contact
                         </a>
-                        <button className="bg-gradient-to-tr from-gray-500 to-gray-600 hover:scale-105 transition-all px-5 py-3 rounded-xl text-white">
+                        <button
+                            onClick={loginModalToggleHandler}
+                            className="bg-gradient-to-tr from-gray-500 to-gray-600 hover:scale-105 transition-all px-5 py-3 rounded-xl text-white"
+                        >
                             Login
                         </button>
                     </div>
