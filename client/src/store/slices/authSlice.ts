@@ -1,16 +1,20 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 export interface Auth {
-    email: string;
-    password: string;
+    registerEmail: string;
+    registerPassword: string;
     retypePassword: string;
+    loginEmail: string;
+    loginPassword: string;
     isLoading: boolean;
 }
 
 const initialState: Auth = {
-    email: '',
-    password: '',
+    registerEmail: '',
+    registerPassword: '',
     retypePassword: '',
+    loginEmail: '',
+    loginPassword: '',
     isLoading: false,
 };
 
@@ -18,10 +22,14 @@ const authSlice = createSlice({
     name: 'auth',
     initialState,
     reducers: {
-        setAuthData(state, action) {
-            state.email = action.payload.email;
-            state.password = action.payload.password;
+        setRegisterData(state, action) {
+            state.registerEmail = action.payload.registerEmail;
+            state.registerPassword = action.payload.registerPassword;
             state.retypePassword = action.payload.retypePassword;
+        },
+        setLoginData(state, action) {
+            state.loginEmail = action.payload.loginEmail;
+            state.loginPassword = action.payload.loginPassword;
         },
         setIsLoading(state, action) {
             state.isLoading = action.payload;

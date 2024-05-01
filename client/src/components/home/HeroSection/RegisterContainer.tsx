@@ -6,6 +6,8 @@ import Alert from '../../common/Alert';
 import { Dispatch, SetStateAction } from 'react';
 import PasswordInput from './PasswordInput';
 import CustomInput from './TextInput';
+//hooks
+import { useNavigate } from 'react-router';
 
 interface RegisterContainerProps {
     isInView?: boolean;
@@ -15,6 +17,8 @@ interface RegisterContainerProps {
 }
 
 const RegisterContainer: React.FC<RegisterContainerProps> = () => {
+    const navigate = useNavigate();
+
     const [data, setData] = useState({
         email: '',
         password: '',
@@ -54,7 +58,13 @@ const RegisterContainer: React.FC<RegisterContainerProps> = () => {
             }
         );
 
-        console.log(responseData);
+        const parsedData = await responseData.json();
+        if (!parsedData.user) {
+            setError(parsedData.message);
+            setIsLoading(false);
+            return;
+        }
+        navigate('/attack');
 
         setIsLoading(false);
     };
@@ -67,7 +77,7 @@ const RegisterContainer: React.FC<RegisterContainerProps> = () => {
     };
 
     return (
-        <div className="w-2/3 h-5/6 p-12 px-4 sm:px-16">
+        <div className="w-2/3 p-12 px-4 sm:px-16 transition-all duration-500">
             <motion.div
                 className="w-full h-full rounded-xl bg-gray-600 p-8 shadow-lg"
                 variants={variants}
