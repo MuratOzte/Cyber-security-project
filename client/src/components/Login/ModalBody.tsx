@@ -1,3 +1,5 @@
+import TextInput from '../home/HeroSection/TextInput';
+
 const ModalBody = () => {
     return (
         <div className="p-4 md:p-5">

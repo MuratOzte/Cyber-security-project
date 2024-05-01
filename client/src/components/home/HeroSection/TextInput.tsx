@@ -15,7 +15,7 @@ interface CustomInputProps {
     data: {
         email: string;
         password: string;
-        comparePassword: string;
+        comparePassword?: string;
     };
 }
 
@@ -58,11 +58,11 @@ const CustomInput = forwardRef<HTMLInputElement, CustomInputProps>(
                     transition={{ duration: 0.4, delay: 0.4 }}
                     onFocus={focusToggleHandler}
                     onBlur={focusToggleHandler}
-                    ref={inputRef}
+                    ref={inputRef || undefined}
                     type={type}
                     name={type}
                     onChange={handleChange}
-                    className="w-full text-gray-800 p-3 rounded-lg bg-gray-400 placeholder:text-gray-500 my-2 focus:ring-2 focus:ring-slate-500 focus:outline-none"
+                    className="block w-full text-gray-800 p-3 rounded-lg bg-gray-400 placeholder:text-gray-500 my-2 focus:ring-2 focus:ring-slate-500 focus:outline-none"
                 />
             </>
         );
