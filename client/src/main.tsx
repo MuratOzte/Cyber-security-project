@@ -12,6 +12,7 @@ const router = createBrowserRouter([
     {
         index: true,
         element: <App />,
+        errorElement: <div className="flex justify-center text-5xl">404</div>,
     },
     {
         path: '/attack',
