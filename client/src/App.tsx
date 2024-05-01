@@ -1,6 +1,4 @@
-import Contact from './components/home/ContactSection/Contact';
-import Attacks from './components/home/AttacksSection/Attacks';
-import Hero from './components/home/HeroSection/hero';
+import Home from './components/home/Home';
 
 import { useSelector } from 'react-redux';
 import LoginModal from './components/Login/LoginModal';
@@ -12,22 +10,14 @@ function App() {
     return (
         <>
             {ui.isLoginModalOpen && (
-                <div className='w-full h-full flex justify-center items-center' >
-                    <LoginModal />
-                </div>
+                <>
+                    <div className="w-full h-full fixed top-0 left-0 bg-black opacity-70 z-50"></div>
+                    <div className="w-full h-full flex justify-center items-center fixed top-0 left-0 z-50">
+                        <LoginModal />
+                    </div>
+                </>
             )}
-
-            <div className="snap-mandatory snap-y h-screen overflow-y-scroll">
-                <div className="snap-center snap-always">
-                    <Hero />
-                </div>
-                <div className="snap-center snap-always" id="attacks">
-                    <Attacks />
-                </div>
-                <div className="snap-center snap-always" id="contact">
-                    <Contact />
-                </div>
-            </div>
+            <Home />
         </>
     );
 }

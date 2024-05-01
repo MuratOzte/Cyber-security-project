@@ -3,14 +3,10 @@ import ModalBody from './ModalBody';
 
 const LoginModal = () => {
     return (
-        <div
-            className="overflow-y-auto overflow-x-hidden fixed z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full"
-        >
-            <div className="relative p-4 w-full max-w-md max-h-full">
-                <div className="relative bg-white rounded-lg shadow dark:bg-gray-700">
-                    <ModalHeader />
-                    <ModalBody />
-                </div>
+        <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center z-50">
+            <div className="absolute bg-white rounded-lg dark:bg-gray-700 w-4/12 shadow-xl">
+                <ModalHeader />
+                <ModalBody />
             </div>
         </div>
     );
