@@ -8,8 +8,8 @@ const ModalBody = () => {
     });
 
     return (
-        <div className="p-4 md:p-5 pt-2">
-            <form className="space-y-4" action="#">
+        <div className="px-6 pb-5">
+            <form className="" action="#">
                 <div>
                     <motion.label
                         onClick={(e) =>
@@ -35,17 +35,27 @@ const ModalBody = () => {
                         type="email"
                         name="email"
                         id="email"
-                        className="block w-full text-gray-800 p-3 rounded-lg bg-gray-400 placeholder:text-gray-500 my-2 focus:ring-2 focus:ring-slate-500 focus:outline-none"
+                        className="block w-full text-gray-800 p-3 rounded-lg bg-gray-400 placeholder:text-gray-500 mt-2 focus:ring-2 focus:ring-slate-500 focus:outline-none"
                         required
                     />
                 </div>
-                <div>
-                    <label
-                        htmlFor="password"
-                        className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                <div className='my-1' >
+                    <motion.label
+                        onClick={(e) =>
+                            document.getElementById('password').focus()
+                        }
+                        initial={{ y: 45 }}
+                        animate={isFocused.password ? { y: 0 } : null}
+                        transition={{ duration: 0.2 }}
+                        htmlFor="Password"
+                        className={`block mb-2 font-medium ml-2 cursor-text text-md ${
+                            !isFocused.password
+                                ? 'text-gray-800'
+                                : 'text-gray-300'
+                        }`}
                     >
-                        Your password
-                    </label>
+                        Password
+                    </motion.label>
                     <input
                         onFocus={(e) =>
                             setIsFocused((prev) => ({
@@ -62,13 +72,13 @@ const ModalBody = () => {
                         type="password"
                         name="password"
                         id="password"
-                        className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                        className="block w-full text-gray-800 p-3 rounded-lg bg-gray-400 placeholder:text-gray-500 focus:ring-2 focus:ring-slate-500 focus:outline-none"
                         required
                     />
                 </div>
                 <button
                     type="submit"
-                    className="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                    className="w-full my-6 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                 >
                     Login to your account
                 </button>
