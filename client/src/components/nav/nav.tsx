@@ -18,7 +18,7 @@ const Nav = () => {
             <nav className="bg-nav w-full h-full">
                 <div className="container mx-auto flex justify-between items-center h-full px-16 py-2">
                     <div
-                        className="flex items-center"
+                        className="flex items-center cursor-pointer"
                         onClick={() => (window.location.href = '/')}
                     >
                         <a href="/" className="text-white text-2xl font-bold">

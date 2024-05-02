@@ -50,8 +50,9 @@ export const loginHandler = async (email: string, password: string) => {
         }
 
         const data = await response.json();
-        console.log(data);
+        return data;
     } catch (error) {
         console.log(error);
+        return error;
     }
 };
