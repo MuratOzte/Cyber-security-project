@@ -43,7 +43,8 @@ const ModalBody = () => {
             }
 
             const responseData = await response.json();
-            console.log(responseData); // Handle successful login
+            localStorage.setItem('token', responseData.token);
+            console.log(responseData);
         } catch (error) {
             console.log(error);
             setError(error || 'An error occurred');
@@ -53,7 +54,7 @@ const ModalBody = () => {
     };
 
     return (
-        <div className="px-6 pb-5">
+        <div className="px-6 pb-5 transition-all duration-500 ease-in">
             <form className="" action="#">
                 <div>
                     <motion.label
