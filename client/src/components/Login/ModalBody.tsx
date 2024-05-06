@@ -55,7 +55,7 @@ const ModalBody = () => {
 
     return (
         <div className="px-6 pb-5 transition-all duration-500 ease-in">
-            <form className="" action="#">
+            <form>
                 <div>
                     <motion.label
                         onClick={(e) =>
