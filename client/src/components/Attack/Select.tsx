@@ -3,13 +3,12 @@ import { Dispatch } from 'react';
 import Attacks from '../../data/attacks.json';
 
 interface SelectProps {
-    isInitial: boolean;
+    isInitial?: boolean;
     setSelectedAttacks: Dispatch<React.SetStateAction<string[]>>;
     selectedAttacks: string[];
 }
 
 const Select: React.FC<SelectProps> = ({
-    isInitial,
     setSelectedAttacks,
     selectedAttacks,
 }) => {

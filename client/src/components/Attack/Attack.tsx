@@ -1,9 +1,12 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import SearchBox from './SearchBox';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Select from './Select';
 import Filter from './Filter';
 import ResultBox from '../Result/ResultBox';
+
+import { useDispatch } from 'react-redux';
+import attackSlice from '../../store/slices/attackSlice';
 
 const variants = {
     searchPosition: {
@@ -17,8 +20,14 @@ const variants = {
 };
 
 const Attack = () => {
+    const dispatch = useDispatch();
+
     const [isInitial, setIsInitial] = useState(true);
     const [selectedAttacks, setSelectedAttacks] = useState([]);
+
+    useEffect(() => {
+        dispatch(attackSlice.actions.setAttacks(selectedAttacks));
+    }, [selectedAttacks]);
 
     const toggler = () => {
         setIsInitial((prev) => !prev);

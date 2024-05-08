@@ -16,13 +16,8 @@ const attackSlice = createSlice({
     name: 'Attack',
     initialState,
     reducers: {
-        addAttack(state, action) {
-            state.selectedAttacks.push(action.payload);
-        },
-        removeAttack(state, action) {
-            state.selectedAttacks = state.selectedAttacks.filter(
-                (attack) => attack !== action.payload
-            );
+        setAttacks(state, action) {
+            state.selectedAttacks = action.payload;
         },
     },
 });
