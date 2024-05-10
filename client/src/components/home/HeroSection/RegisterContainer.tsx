@@ -77,7 +77,7 @@ const RegisterContainer: React.FC<RegisterContainerProps> = () => {
     };
 
     return (
-        <div className="w-2/3 p-12 px-4 sm:px-16 transition-all duration-500">
+        <div className="w-full px-4  pt-0 sm:px-16 transition-all duration-500">
             <motion.div
                 className="w-full h-full rounded-xl bg-gray-600 p-8 shadow-lg"
                 variants={variants}
@@ -85,7 +85,11 @@ const RegisterContainer: React.FC<RegisterContainerProps> = () => {
                 animate={isInView ? 'visible' : 'hidden'}
                 transition={{ duration: 0.3, delay: 0.3 }}
             >
-                <form className="flex relative flex-col space-y-6 items-center h-full mt-7">
+                <p className="text-2xl font-extralight mt-0 text-center shadow-2xl shadow-gray-700 text-gray-300 uppercase">
+                    Join{' '}
+                    EasyBer
+                </p>
+                <form className="flex relative flex-col space-y-6 items-center h-full">
                     <CustomInput
                         data={data}
                         ref={ref}

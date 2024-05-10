@@ -7,7 +7,7 @@ const HeroText = () => {
 
     const variants: Variants = {
         hidden: { opacity: 0, scale: 0.95 },
-        visible: { opacity: 1 , scale: 1},
+        visible: { opacity: 1, scale: 1 },
     };
 
     useEffect(() => {
@@ -34,14 +34,18 @@ const HeroText = () => {
                 </motion.h1>
                 {/* small text */}
                 <motion.p
-                    className="text-3xl text-gray-400 text-left"
+                    className="text-3xl text-gray-400 text-left mr-8"
                     variants={variants}
                     initial="hidden"
                     animate={isInView ? 'visible' : 'hidden'}
                     exit={{ opacity: 0 }}
                     transition={{ duration: 0.3, delay: 0.25 }}
                 >
-                    Bura Biraz Yamuk Oldu Ama Düzelticem Albayrak Family &#x2764;
+                    Pompalamasyon bu benim misyon Afrodizyak istemez doğuştan
+                    hazır füzyon Wow wow wow baby yoo bu gece gelip benim ol
+                    Pompalamasyon bu benim misyon Afrodizyak istemez doğuştan
+                    hazır füzyon Wow wow wow baby yoo bu gece gelip benim ol
+                    &#x2764;
                 </motion.p>
             </div>
         </div>
