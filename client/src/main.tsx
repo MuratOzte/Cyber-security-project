@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App.tsx';
 import './index.css';
-import Nav from './components/nav/nav.tsx';
+import Nav from './components/nav/Nav.tsx';
 import Attack from './components/Attack/Attack.tsx';
 
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';

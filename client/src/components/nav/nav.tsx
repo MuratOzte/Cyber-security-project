@@ -1,8 +1,8 @@
+import { useDispatch, useSelector } from 'react-redux';
 import logo from '../../assets/logo.png';
-import LoginModal from '../Login/LoginModal';
-import { useSelector, useDispatch } from 'react-redux';
-import uiSlice from '../../store/slices/uiSlice';
 import { RootState } from '../../store';
+import uiSlice from '../../store/slices/uiSlice';
+import NavButton from './NavButtons';
 
 const Nav = () => {
     const dispatch = useDispatch();
@@ -11,10 +11,6 @@ const Nav = () => {
 
     const loginModalToggleHandler = () => {
         dispatch(uiSlice.actions.setLoginModal(!ui.isLoginModalOpen));
-    };
-
-    const scrollHandler = (location: string) => {
-        dispatch(uiSlice.actions.setScrollPosition(location));
     };
 
     return (
@@ -30,25 +26,10 @@ const Nav = () => {
                         </a>
                         <p className="text-[24px]">Easyber Security</p>
                     </div>
-                    <div className="flex items-center gap-3">
-                        <button
-                            onClick={scrollHandler.bind(null, 'Hero')}
-                            className="text-white mr-8 hover:scale-105 transition-all"
-                        >
-                            Register
-                        </button>
-                        <button
-                            onClick={scrollHandler.bind(null, 'Attack')}
-                            className="text-white mr-8 hover:scale-105 transition-all"
-                        >
-                            Attacks
-                        </button>
-                        <button
-                            onClick={scrollHandler.bind(null, 'Contact')}
-                            className="text-white mr-5 hover:scale-105 transition-all"
-                        >
-                            Contact
-                        </button>
+                    <div className="flex items-center">
+                        <NavButton position="Hero" />
+                        <NavButton position="Attack" />
+                        <NavButton position="Contact" />
                         <button
                             onClick={loginModalToggleHandler}
                             className="bg-gradient-to-tr from-gray-500 to-gray-600 hover:scale-105 transition-all px-5 py-3 rounded-xl text-white"
