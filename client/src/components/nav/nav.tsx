@@ -13,6 +13,10 @@ const Nav = () => {
         dispatch(uiSlice.actions.setLoginModal(!ui.isLoginModalOpen));
     };
 
+    const scrollHandler = (location: string) => {
+        dispatch(uiSlice.actions.setScrollPosition(location));
+    };
+
     return (
         <>
             <nav className="bg-nav w-full h-full">
@@ -26,13 +30,19 @@ const Nav = () => {
                         </a>
                         <p className="text-[24px]">Easyber Security</p>
                     </div>
-                    <div>
-                        <a href="#attack" className="text-white mr-8">
+                    <div className="flex items-center gap-3">
+                        <button
+                            onClick={scrollHandler.bind(null, 'Attack')}
+                            className="text-white mr-8"
+                        >
                             Attacks
-                        </a>
-                        <a href="/services" className="text-white mr-5">
+                        </button>
+                        <button
+                            onClick={scrollHandler.bind(null, 'Contact')}
+                            className="text-white mr-5"
+                        >
                             Contact
-                        </a>
+                        </button>
                         <button
                             onClick={loginModalToggleHandler}
                             className="bg-gradient-to-tr from-gray-500 to-gray-600 hover:scale-105 transition-all px-5 py-3 rounded-xl text-white"
