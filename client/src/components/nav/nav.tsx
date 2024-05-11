@@ -19,7 +19,7 @@ const Nav = () => {
 
     return (
         <>
-            <nav className="bg-nav w-full h-full">
+            <nav className="bg-nav w-full h-full select-none">
                 <div className="container mx-auto flex justify-between items-center h-full px-16 py-2">
                     <div
                         className="flex items-center cursor-pointer"
@@ -32,14 +32,20 @@ const Nav = () => {
                     </div>
                     <div className="flex items-center gap-3">
                         <button
+                            onClick={scrollHandler.bind(null, 'Hero')}
+                            className="text-white mr-8 hover:scale-105 transition-all"
+                        >
+                            Register
+                        </button>
+                        <button
                             onClick={scrollHandler.bind(null, 'Attack')}
-                            className="text-white mr-8"
+                            className="text-white mr-8 hover:scale-105 transition-all"
                         >
                             Attacks
                         </button>
                         <button
                             onClick={scrollHandler.bind(null, 'Contact')}
-                            className="text-white mr-5"
+                            className="text-white mr-5 hover:scale-105 transition-all"
                         >
                             Contact
                         </button>
