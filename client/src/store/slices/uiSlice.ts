@@ -4,14 +4,14 @@ export interface AttackSlice {
     isLoading: boolean;
     token: string;
     isLoginModalOpen: boolean;
-    scrollPosition: 'Attack' | 'Contact' | 'Hero';
+    scrollPosition: 'Attack' | 'Contact' | 'Register';
 }
 
 const initialState: AttackSlice = {
     isLoading: false,
     token: '',
     isLoginModalOpen: false,
-    scrollPosition: 'Hero',
+    scrollPosition: 'Register',
 };
 
 const attackSlice = createSlice({

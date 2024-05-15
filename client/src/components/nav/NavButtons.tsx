@@ -7,7 +7,7 @@ import { RootState } from '../../store';
 import { motion } from 'framer-motion';
 
 interface NavButtonProps {
-    position: 'Attack' | 'Contact' | 'Hero';
+    position: 'Attack' | 'Contact' | 'Register';
 }
 
 const NavButton: React.FC<NavButtonProps> = ({ position }) => {
@@ -23,7 +23,7 @@ const NavButton: React.FC<NavButtonProps> = ({ position }) => {
                 onClick={scrollHandler.bind(null, position)}
                 className="text-white mr-8 hover:scale-105 transition-all text-center"
             >
-                {position}
+                <p className='ml-[1%]' >{position}</p>
             </button>
             {ui.scrollPosition === position && (
                 <motion.div layoutId="activeTabIndicator">

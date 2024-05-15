@@ -27,7 +27,7 @@ const Nav = () => {
                         <p className="text-[24px]">Easyber Security</p>
                     </div>
                     <div className="flex items-center">
-                        <NavButton position="Hero" />
+                        <NavButton position="Register" />
                         <NavButton position="Attack" />
                         <NavButton position="Contact" />
                         <button

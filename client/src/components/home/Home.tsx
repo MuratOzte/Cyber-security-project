@@ -24,7 +24,7 @@ const Home = () => {
             ref={homeRef}
             className="snap-mandatory snap-y h-screen overflow-y-scroll"
         >
-            <div className="snap-center snap-always" id="Hero">
+            <div className="snap-center snap-always" id="Register">
                 <Hero />
             </div>
             <div className="snap-center snap-always" id="Attack">
