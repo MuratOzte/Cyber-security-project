@@ -86,10 +86,9 @@ const RegisterContainer: React.FC<RegisterContainerProps> = () => {
                 transition={{ duration: 0.3, delay: 0.3 }}
             >
                 <p className="text-2xl font-extralight mt-0 text-center shadow-2xl shadow-gray-700 text-gray-300 uppercase">
-                    Join{' '}
-                    EasyBer
+                    Join EasyBer
                 </p>
-                <form className="flex relative flex-col space-y-6 items-center h-full">
+                <form className="flex relative flex-col space-y-6 items-center h-full pb-6">
                     <CustomInput
                         data={data}
                         ref={ref}
@@ -117,7 +116,7 @@ const RegisterContainer: React.FC<RegisterContainerProps> = () => {
                         animate={isInView ? 'visible' : 'hidden'}
                         transition={{ duration: 0.4, delay: 0.8 }}
                         onClick={handleSubmit}
-                        className="bg-gray-400 text-white w-full p-2 rounded-lg flex justify-center my-2"
+                        className="bg-gray-400 text-white w-full p-2 rounded-lg flex justify-center my-2 hover:scale-110"
                     >
                         {isLoading && (
                             <div role="status">
@@ -142,16 +141,6 @@ const RegisterContainer: React.FC<RegisterContainerProps> = () => {
                         )}
                         {!isLoading && 'Register'}
                     </motion.button>
-                    <motion.p
-                        variants={variants}
-                        initial="hidden"
-                        animate={isInView ? 'visible' : 'hidden'}
-                        transition={{ duration: 0.4, delay: 0.85 }}
-                        className="text-gray-400 text-xl cursor-pointer"
-                    >
-                        Already have an account?{' '}
-                        <span className="text-gray-300">Sign in</span>
-                    </motion.p>
                     <AnimatePresence>
                         {error && (
                             <motion.div
