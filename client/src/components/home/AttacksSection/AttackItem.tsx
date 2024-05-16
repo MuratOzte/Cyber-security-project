@@ -1,5 +1,8 @@
 import { motion, AnimatePresence, useInView } from 'framer-motion';
 import { useState, useEffect, useRef } from 'react';
+import { useDispatch } from 'react-redux';
+import { RootState } from '../../../store';
+import uiSlice from '../../../store/slices/uiSlice';
 
 interface AttackItemProps {
     title: string;
@@ -14,10 +17,18 @@ const AttackItem: React.FC<AttackItemProps> = ({
     image,
     index,
 }) => {
+    const dispatch = useDispatch();
+
     const [indexState, setIndexState] = useState(0);
 
     const container = useRef(null);
     const isInView = useInView(container);
+
+    useEffect(() => {
+        if (isInView) {
+            dispatch(uiSlice.actions.setNavPosition('Attack'));
+        }
+    }, [isInView]);
 
     useEffect(() => {
         if (index % 3 == 1) {

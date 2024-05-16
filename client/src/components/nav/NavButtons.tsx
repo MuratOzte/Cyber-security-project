@@ -25,7 +25,7 @@ const NavButton: React.FC<NavButtonProps> = ({ position }) => {
             >
                 <p className='ml-[1%]' >{position}</p>
             </button>
-            {ui.scrollPosition === position && (
+            {ui.navPosition === position && (
                 <motion.div layoutId="activeTabIndicator">
                     <ActiveTabIndicator />
                 </motion.div>

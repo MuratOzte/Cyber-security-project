@@ -1,13 +1,16 @@
 import { AnimatePresence, motion, useInView, Variants } from 'framer-motion';
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import registerValidation from '../../../utils/registerValidation';
 import Alert from '../../common/Alert';
 //types
 import { Dispatch, SetStateAction } from 'react';
 import PasswordInput from './PasswordInput';
 import CustomInput from './TextInput';
+import { RootState } from '../../../store';
 //hooks
 import { useNavigate } from 'react-router';
+import { useDispatch } from 'react-redux';
+import uiSlice from '../../../store/slices/uiSlice';
 
 interface RegisterContainerProps {
     isInView?: boolean;
@@ -18,6 +21,7 @@ interface RegisterContainerProps {
 
 const RegisterContainer: React.FC<RegisterContainerProps> = () => {
     const navigate = useNavigate();
+    const dispatch = useDispatch();
 
     const [data, setData] = useState({
         email: '',
@@ -29,6 +33,14 @@ const RegisterContainer: React.FC<RegisterContainerProps> = () => {
 
     const ref = useRef(null);
     const isInView = useInView(ref);
+
+    useEffect(() => {
+        console.log(isInView);
+        
+        if (isInView) {
+            dispatch(uiSlice.actions.setNavPosition('Register'));
+        }
+    }, [isInView]);
 
     const handleChange = (e: any) => {
         setData({ ...data, [e.target.name]: e.target.value });
