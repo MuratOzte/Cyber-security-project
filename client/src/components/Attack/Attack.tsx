@@ -39,9 +39,6 @@ const Attack = () => {
     return (
         <div>
             <div className="w-full h-full items-center flex flex-col">
-                <motion.div className="w-full h-6 flex justify-center">
-                    <h1>{attackStore.error}</h1>
-                </motion.div>
                 <motion.div
                     variants={variants}
                     initial="searchPosition"
@@ -71,6 +68,7 @@ const Attack = () => {
                         </motion.div>
                     )}
                 </AnimatePresence>
+
                 <button onClick={toggler}>Toggle</button>
             </div>
             <ResultBox />

@@ -33,6 +33,9 @@ const attackSlice = createSlice({
             state.error = null;
             state.url = action.payload;
         },
+        setError(state, action) {
+            state.error = action.payload;
+        },
     },
 });
 

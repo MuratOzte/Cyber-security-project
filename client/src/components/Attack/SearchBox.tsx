@@ -9,6 +9,7 @@ import Loading from '../common/Loading';
 import { RootState } from '../../store';
 import attackSlice from '../../store/slices/attackSlice';
 
+
 const SearchBox = () => {
     const dispatch = useDispatch();
     const attackStore = useSelector((state: RootState) => state.attack);
