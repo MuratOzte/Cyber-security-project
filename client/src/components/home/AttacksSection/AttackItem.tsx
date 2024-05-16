@@ -56,22 +56,23 @@ const AttackItem: React.FC<AttackItemProps> = ({
                 transition={{ duration: 0.8, delay: index * 0.05, bounce: 0.2 }}
                 exit="hidden"
                 variants={variants}
-                className="bg-gray-600 p-8 flex w-[30%] h-[240px] justify-between items-center rounded-xl mx-auto mb-2"
+                className="bg-gradient-to-b from-gray-500 to-gray-600 flex w-[30%] h-[260px] justify-between items-start rounded-xl mx-auto pt-4 px-4 mb-8"
             >
-                <div className="h-full ">
-                    <h1 className="text-4xl text-gray-100 uppercase mb-3">
-                        {title}
-                    </h1>
-                    <p className="w-full text-gray-300 text-sm">
-                        {description}
-                    </p>
-                </div>
-                <div className="w-2/3 h-full flex justify-center rounded-xl min-w-44 ml-5">
-                    <img
-                        src={image}
-                        alt={title}
-                        className="aspect-[3/2] object-contain mix-blend-color-burn"
-                    />
+                <div className="flex space-y-5 flex-col">
+                    <div className="w-full flex justify-center">
+                        <img
+                            src={image}
+                            alt={title}
+                            className={`w-1/2 ${
+                                title == 'Nmap' ? 'h-[100px]' : 'h-16'
+                            } aspect-[3/5] mix-blend-color-burn`}
+                        />
+                    </div>
+                    <div className="h-full items-center flex">
+                        <p className="text-gray-300 mt-2 text-sm">
+                            {description}
+                        </p>
+                    </div>
                 </div>
             </motion.div>
         </AnimatePresence>

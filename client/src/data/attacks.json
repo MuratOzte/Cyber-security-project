@@ -1,32 +1,32 @@
 [
-  {
-    "title": "katana",
-    "description": "It helps assess your systems and applications through penetration testing. Its code base is written in the Python language and can be used to automate various penetration testing techniques.",
-    "image": "https://i.ytimg.com/vi/r5sb9vpgDuI/maxresdefault.jpg"
-  },
-  {
-    "title": "Nmap",
-    "description": " Nmap is a network scanning tool used to discover hosts and services on a computer network. It sends packets to the target network and analyzes the responses to determine which hosts are online, what services they are running, and various other details about the network configuration.",
-    "image": "https://sudo.ubuntu-tr.net/assets/post/nmap-komutu-ve-kullanimi/nmap-komutu-ve-kullanimi.jpg"
-  },
-  {
-    "title": "Curl",
-    "description": "The curl command is a tool used to transfer data to or from a server, supporting various protocols like HTTP, HTTPS, FTP, and more. It's commonly used in command-line interfaces to fetch or send data, interact with APIs, and perform various network-related tasks.",
-    "image": "https://nordicapis.com/wp-content/uploads/Understanding-the-Hidden-Powers-of-cURL-1-e1624902424981-1024x576.png"
-  },
-  {
-    "title": "Corsy - Cors",
-    "description": "CORSy is a command-line tool used to scan for CORS (Cross-Origin Resource Sharing) misconfigurations on web applications. It helps identify security vulnerabilities related to CORS policies, which can lead to unauthorized access to sensitive data or resources on a website.",
-    "image": "https://camo.githubusercontent.com/ce3c17f9242db601f0bb4852087755462a16461a2a2d6e4087ace68b70681d5d/68747470733a2f2f692e6962622e636f2f4b305a375839392f636f7273792e706e67"
-  },
-  {
-    "title": "Httpx",
-    "description": "HTTPX is a command-line tool and library for making HTTP requests. It's designed to be fast, reliable, and feature-rich. You can use it to test web servers, APIs, and web applications by sending various types of HTTP requests (GET, POST, etc.) and examining the responses. It's often used in security testing, web scraping, and automation tasks.",
-    "image": "https://github.com/projectdiscovery/httpx/raw/main/static/httpx-logo.png"
-  },
-  {
-    "title": "Nuclei",
-    "description": "Nuclei is a fast and flexible tool used for detecting security vulnerabilities in web applications and APIs. It works by matching requests and responses against a set of predefined templates, allowing for the automated identification of known issues such as XSS, SQL injection, and more. Nuclei is highly extensible and can be customized to fit specific testing needs.",
-    "image": "https://github.com/projectdiscovery/nuclei/raw/dev/static/nuclei-logo.png"
-  }
+    {
+        "title": "katana",
+        "description": "Katana is a powerful cybersecurity tool for penetration testing and vulnerability assessment. It simplifies identifying and exploiting security weaknesses, offering advanced features and automation for comprehensive security audits. Katana helps organizations improve their security posture and protect against threats.",
+        "image": "https://miro.medium.com/v2/resize:fit:828/format:webp/0*YPLPSF4qM_hbZhZX.png"
+    },
+    {
+        "title": "Nmap",
+        "description": " Nmap is a network scanning tool used to discover hosts and services on a computer network. It sends packets to the target network and analyzes the responses to determine which hosts are online, what services they are running, and various other details about the network configuration.",
+        "image": "https://sudo.ubuntu-tr.net/assets/post/nmap-komutu-ve-kullanimi/nmap-komutu-ve-kullanimi.jpg"
+    },
+    {
+        "title": "Curl",
+        "description": "The curl command is a tool used to transfer data to or from a server, supporting various protocols like HTTP, HTTPS, FTP, and more. It's commonly used in command-line interfaces to fetch or send data, interact with APIs, and perform various network-related tasks.",
+        "image": "https://curl.se/logo/curl-logo.svg"
+    },
+    {
+        "title": "Corsy - Cors",
+        "description": "CORSy is a command-line tool used to scan for CORS (Cross-Origin Resource Sharing) misconfigurations on web applications. It helps identify security vulnerabilities related to CORS policies, which can lead to unauthorized access to sensitive data or resources on a website.",
+        "image": "https://camo.githubusercontent.com/ce3c17f9242db601f0bb4852087755462a16461a2a2d6e4087ace68b70681d5d/68747470733a2f2f692e6962622e636f2f4b305a375839392f636f7273792e706e67"
+    },
+    {
+        "title": "Httpx",
+        "description": "HTTPX is a command-line tool and library for making HTTP requests. It's designed to be fast, reliable, and feature-rich. You can use it to test web servers, APIs, and web applications by sending various types of HTTP requests (GET, POST, etc.) and examining the responses. It's often used in security testing, web scraping, and automation tasks.",
+        "image": "https://github.com/projectdiscovery/httpx/raw/main/static/httpx-logo.png"
+    },
+    {
+        "title": "Nuclei",
+        "description": "Nuclei is a fast and flexible tool used for detecting security vulnerabilities in web applications and APIs. It works by matching requests and responses against a set of predefined templates, allowing for the automated identification of known issues such as XSS, SQL injection, and more. Nuclei is highly extensible and can be customized to fit specific testing needs.",
+        "image": "https://github.com/projectdiscovery/nuclei/raw/dev/static/nuclei-logo.png"
+    }
 ]

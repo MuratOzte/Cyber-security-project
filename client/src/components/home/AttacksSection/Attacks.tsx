@@ -5,7 +5,7 @@ import attacks from '../../../data/attacks.json';
 const Attacks = () => {
     return (
         <div className="h-screen w-full">
-            <div className="flex flex-wrap p-12 justify-center h-full w-full flex-row">
+            <div className="flex flex-wrap p-8 justify-center w-full flex-row mb-5">
                 {attacks.map((attack, index) => (
                     <AttackItem
                         key={index + 'attack'}
