@@ -2,15 +2,17 @@
 import { IoMdClose, IoMdSearch } from 'react-icons/io';
 import { MdOutlineDone } from 'react-icons/md';
 //hooks
-import {
-    ChangeEventHandler,
-    MouseEventHandler,
-    useState
-} from 'react';
+import { ChangeEventHandler, MouseEventHandler, useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 //components
 import Loading from '../common/Loading';
+import { RootState } from '../../store';
+import attackSlice from '../../store/slices/attackSlice';
 
 const SearchBox = () => {
+    const dispatch = useDispatch();
+    const attackStore = useSelector((state: RootState) => state.attack);
+
     const [state, setState] = useState({
         isFocused: false,
         isLoading: false,
@@ -40,6 +42,13 @@ const SearchBox = () => {
         setUrl('');
     };
 
+    const submitHandler = () => {
+        dispatch(attackSlice.actions.setUrl(url));
+        setState((prev) => {
+            return { ...prev, isDone: true };
+        });
+    };
+
     return (
         <div className=" flex justify-center w-2/3 p-2 pb-0 relative">
             <input
@@ -65,7 +74,7 @@ const SearchBox = () => {
                 className={`bg-green-700 pr-5 rounded-tr-full rounded-br-full ${
                     state.isFocused ? 'ring-[3px] ring-green-700' : null
                 }`}
-                onClick={loadingToggleHandker}
+                onClick={submitHandler}
             >
                 <div className="ml-3">
                     {state.isLoading ? (

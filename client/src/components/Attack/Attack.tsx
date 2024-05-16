@@ -5,8 +5,9 @@ import Select from './Select';
 import Filter from './Filter';
 import ResultBox from '../Result/ResultBox';
 
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import attackSlice from '../../store/slices/attackSlice';
+import { RootState } from '../../store';
 
 const variants = {
     searchPosition: {
@@ -21,6 +22,7 @@ const variants = {
 
 const Attack = () => {
     const dispatch = useDispatch();
+    const attackStore = useSelector((state: RootState) => state.attack);
 
     const [isInitial, setIsInitial] = useState(true);
     const [selectedAttacks, setSelectedAttacks] = useState([]);
@@ -35,8 +37,11 @@ const Attack = () => {
     };
 
     return (
-        <>
+        <div>
             <div className="w-full h-full items-center flex flex-col">
+                <motion.div className="w-full h-6 flex justify-center">
+                    <h1>{attackStore.error}</h1>
+                </motion.div>
                 <motion.div
                     variants={variants}
                     initial="searchPosition"
@@ -69,7 +74,7 @@ const Attack = () => {
                 <button onClick={toggler}>Toggle</button>
             </div>
             <ResultBox />
-        </>
+        </div>
     );
 };
 
