@@ -1,13 +1,13 @@
-import { motion, AnimatePresence } from 'framer-motion';
-import SearchBox from './SearchBox';
+import { AnimatePresence, motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
-import Select from './Select';
+import Result from '../Result/Results';
 import Filter from './Filter';
-import ResultBox from '../Result/ResultBox';
+import SearchBox from './SearchBox';
+import Select from './Select';
 
 import { useDispatch, useSelector } from 'react-redux';
-import attackSlice from '../../store/slices/attackSlice';
 import { RootState } from '../../store';
+import attackSlice from '../../store/slices/attackSlice';
 
 const variants = {
     searchPosition: {
@@ -71,7 +71,7 @@ const Attack = () => {
 
                 <button onClick={toggler}>Toggle</button>
             </div>
-            <ResultBox />
+            <Result />
         </div>
     );
 };

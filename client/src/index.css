@@ -4,7 +4,7 @@
 
 @layer utilities {
     .bg-nav{
-        background-color: #212223;
+        background-color: #2122239c;
     }
     .bg-4{
         background-color: #272829;
@@ -21,12 +21,18 @@
     .ffffff{
         background-color: #ffffff;
     }
+    .bg-linear{
+        background-color: #4B79A1;
+    }
+    .bg-linear2{
+        background-color: #283E51;
+    }
 }
 
 body {
     margin: 0;
     padding: 0;
-    background-color: #272829;
+    background-color: #272829f0;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     color: beige;
     height: 100vh;
