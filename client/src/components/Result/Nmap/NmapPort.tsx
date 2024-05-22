@@ -4,13 +4,13 @@ import { MdDoNotDisturbOn } from 'react-icons/md';
 
 interface NmapPortProps {
     title: string;
-    status: 'Open' | 'Closed' | 'Filtered';
+    status: 'open' | 'closed' | 'filtered';
 }
 
 const NmapPort: React.FC<NmapPortProps> = ({ title, status }) => {
     return (
         <>
-            {status === 'Open' && (
+            {status === 'open' && (
                 <div
                     className={
                         'w-fit flex items-center gap-5 bg-green-500 p-2 rounded-md px-5'
@@ -23,7 +23,7 @@ const NmapPort: React.FC<NmapPortProps> = ({ title, status }) => {
                     </div>
                 </div>
             )}
-            {status === 'Closed' && (
+            {status === 'closed' && (
                 <div
                     className={
                         'w-fit flex items-center gap-5 bg-red-500 p-2 rounded-md px-5'
@@ -36,7 +36,7 @@ const NmapPort: React.FC<NmapPortProps> = ({ title, status }) => {
                     </div>
                 </div>
             )}
-            {status === 'Filtered' && (
+            {status === 'filtered' && (
                 <div
                     className={
                         'w-fit flex items-center gap-5 bg-yellow-500 p-2 rounded-md px-5'
