@@ -22,6 +22,7 @@ def get_http_headers(url):
         return headers_dict
     except Exception as e:
         print("Curl hatası:", str(e))
+        return {}
 
 def nmap_scan(url):
     try:
@@ -40,6 +41,7 @@ def nmap_scan(url):
         return nmap_output
     except Exception as e:
         print("Nmap hatası:", str(e))
+        return {}
 
 if __name__ == "__main__":
     if len(sys.argv) > 1:
@@ -51,13 +53,11 @@ if __name__ == "__main__":
     
     # Başlık bilgilerini al ve JSON formatında yazdır
     headers = get_http_headers(url)
-    print(json.dumps(headers, ensure_ascii=False, indent=4))
     
-    # # Port ve Servis Taraması Yapılıyor ve JSON formatında yazdır
+    # Port ve Servis Taraması Yapılıyor ve JSON formatında yazdır
     nmap_output = nmap_scan(url)
-    # print(json.dumps(nmap_output, ensure_ascii=False, indent=4))
 
-        # JSON formatında verileri birleştir
+    # JSON formatında verileri birleştir
     combined_data = {
         "headers": headers,
         "nmap_output": nmap_output
