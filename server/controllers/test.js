@@ -22,9 +22,7 @@ exports.nmapTest = async (req, res) => {
   let error = "";
 
   pythonProcess.stdout.on("data", (data) => {
-    const cleanedData = data.toString();
-    output += cleanedData;
-    console.log(output);
+    output += data.toString();
   });
 
   pythonProcess.stderr.on("data", (data) => {
@@ -34,13 +32,8 @@ exports.nmapTest = async (req, res) => {
   pythonProcess.on("close", (code) => {
     if (code === 0) {
       try {
-        res.json({
-          result: output
-            .replace(/\\/g, "")
-            .replace(/\"/g, "")
-            .replace(/\n/g, "")
-            .replace(/\r/g, ""),
-        });
+        const jsonData = JSON.parse(output);
+        res.json(jsonData);
       } catch (err) {
         console.log(err);
         res
