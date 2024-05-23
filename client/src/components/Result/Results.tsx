@@ -1,8 +1,12 @@
 import ResultBox from './ResultBox';
 import Nmap from './Nmap/Nmap';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../store';
 
 const Result = () => {
-    return <Nmap url='www.google.com' />;
+    const attackStore = useSelector((state: RootState) => state.attack);
+
+    return <Nmap url={attackStore.url} />;
 };
 
 export default Result;

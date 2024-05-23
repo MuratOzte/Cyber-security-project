@@ -11,110 +11,35 @@ interface NmapProps {
 }
 
 const Nmap: React.FC<NmapProps> = ({ url }) => {
-    const [isExpanded, setIsExpanded] = useState(true);
+    const [isExpanded, setIsExpanded] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
+    const [result, setResult] = useState<any>(null);
 
     const expandToggleHandler = () => {
         setIsExpanded((prev) => !prev);
     };
 
-    const jsonveri = {
-        result: `{
-          "Content-Type": "text/html; charset=ISO-8859-1",
-          "Content-Security-Policy-Report-Only": "object-src 'none';base-uri 'self';script-src 'nonce-IADiUaZFdDpkXmHtiP18iQ' 'strict-dynamic' 'report-sample' 'unsafe-eval' 'unsafe-inline' https: http:;report-uri https://csp.withgoogle.com/csp/gws/other-hp",
-          "P3P": "CP=This is not a P3P policy! See g.co/p3phelp for more info.",
-          "Date": "Wed, 22 May 2024 12:05:28 GMT",
-          "Server": "gws",
-          "X-XSS-Protection": "0",
-          "X-Frame-Options": "SAMEORIGIN",
-          "Transfer-Encoding": "chunked",
-          "Expires": "Wed, 22 May 2024 12:05:28 GMT",
-          "Cache-Control": "private",
-          "Set-Cookie": "NID=514=F1efYVWd7ozlNb13D2XL_9Vq_eYGqjMOClZK2gV_Cq67NgwOohHdIMdyrkBu2xW4oG9YCQQCgA_93ixMs22fv_RYe9cfZyEuqMiYcOIgiiJNFGHAC4h9KR7X60lVX4dX-ZZ5TsnAu_qfhsCXLEicXGFT4-B6OAVhV9m3DvEWrvU; expires=Thu, 21-Nov-2024 12:05:28 GMT; path=/; domain=.google.com; HttpOnly",
-          "headers": {
-            "Content-Type": "text/html; charset=ISO-8859-1",
-            "Content-Security-Policy-Report-Only": "object-src 'none';base-uri 'self';script-src 'nonce-IADiUaZFdDpkXmHtiP18iQ' 'strict-dynamic' 'report-sample' 'unsafe-eval' 'unsafe-inline' https: http:;report-uri https://csp.withgoogle.com/csp/gws/other-hp",
-            "P3P": "CP=This is not a P3P policy! See g.co/p3phelp for more info.",
-            "Date": "Wed, 22 May 2024 12:05:28 GMT",
-            "Server": "gws",
-            "X-XSS-Protection": "0",
-            "X-Frame-Options": "SAMEORIGIN",
-            "Transfer-Encoding": "chunked",
-            "Expires": "Wed, 22 May 2024 12:05:28 GMT",
-            "Cache-Control": "private",
-            "Set-Cookie": "NID=514=F1efYVWd7ozlNb13D2XL_9Vq_eYGqjMOClZK2gV_Cq67NgwOohHdIMdyrkBu2xW4oG9YCQQCgA_93ixMs22fv_RYe9cfZyEuqMiYcOIgiiJNFGHAC4h9KR7X60lVX4dX-ZZ5TsnAu_qfhsCXLEicXGFT4-B6OAVhV9m3DvEWrvU; expires=Thu, 21-Nov-2024 12:05:28 GMT; path=/; domain=.google.com; HttpOnly"
-          },
-          "nmap_output": {
-            "216.58.213.100": {
-              "tcp": {
-                "21": {
-                  "state": "filtered",
-                  "service": "ftp"
-                },
-                "22": {
-                  "state": "filtered",
-                  "service": "ssh"
-                },
-                "80": {
-                  "state": "open",
-                  "service": "http"
-                },
-                "443": {
-                  "state": "open",
-                  "service": "https"
-                },
-                "3306": {
-                  "state": "filtered",
-                  "service": "mysql"
-                },
-                "5432": {
-                  "state": "filtered",
-                  "service": "postgresql"
-                }
-              }
-            }
-          }
-        }`,
-    };
-
-    const [nmapOutput, setNmapOutput] = useState(null);
     useEffect(() => {
-        try {
-            const parsedResult = JSON.parse(jsonveri.result);
-            console.log(parsedResult);
-            setNmapOutput(parsedResult);
-        } catch (error) {
-            console.error('Failed to parse JSON:', error);
-        }
-    }, []);
-
-    // useEffect(() => {
-    //     setIsLoading(true);
-    //     fetch('http://localhost:3000/test/nmap', {
-    //         method: 'POST',
-    //         headers: {
-    //             'Content-Type': 'application/json',
-    //             Authorization: `Bearer ${localStorage.getItem('token')}`,
-    //         },
-    //         body: JSON.stringify({ url }),
-    //     })
-    //         .then((res) => res.json())
-    //         .then((data) => {
-    //             const response = JSON.parse(data.result);
-    //             console.log(response);
-    //         })
-    //         .catch((err) => {
-    //             console.log(err);
-    //             setIsLoading(false);
-    //         });
-    // }, []);
-
-    useEffect(() => {
-        console.log(
-            nmapOutput['nmap_output'][
-                `${Object.keys(nmapOutput['nmap_output'])}`
-            ].tcp['21'].state
-        );
+        setIsLoading(true);
+        fetch('http://localhost:3000/test/nmap', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: `Bearer ${localStorage.getItem('token')}`,
+            },
+            body: JSON.stringify({ url }),
+        })
+            .then((res) => res.json())
+            .then((data) => {
+                const response = data;
+                setResult(response);
+                console.log(response);
+                setIsLoading(false);
+            })
+            .catch((err) => {
+                console.log(err);
+                setIsLoading(false);
+            });
     }, []);
 
     return (
@@ -139,30 +64,27 @@ const Nmap: React.FC<NmapProps> = ({ url }) => {
                         <Skeleton />
                     </div>
                 )}
-                {!isLoading && nmapOutput && (
+                {!isLoading && result && (
                     <motion.div
-                        initial={{ scaleX: 0, opacity: 0 }}
-                        animate={{ scaleX: 1, opacity: 1 }}
-                        transition={{ duration: 0.8 }}
                         className={`w-2/3 relative bg-gray-800 ${
                             isExpanded ? 'h-[360px]' : 'h-[140px]'
                         } rounded-tr-xl rounded-br-xl origin-left transition-[height] duration-700 px-5 pt-2`}
                     >
                         <div>
                             <div className="flex w-full justify-between mb-4">
-                                <p>{Object.keys(nmapOutput['nmap_output'])}</p>
+                                <p>{Object.keys(result['nmap_output'])}</p>
                                 <p>Headers</p>
-                                <p>{nmapOutput.Date}</p>
+                                <p>{result.headers.Date}</p>
                             </div>
                             <div className="flex w-full flex-col">
-                                <div className="flex flex-row rounded-lg ml-4 gap-5">
+                                <div className="flex flex-row rounded-lg ml-4 gap-5 justify-evenly">
                                     <div className="flex flex-row items-center rounded-md bg-gray-500  h-6 py-1">
                                         <span className="bg-gray-600 px-2 rounded-tl-md rounded-bl-md">
                                             Server:
                                         </span>
                                         <Divider />
                                         <p className="bg-gray-500 px-2 rounded-tr-md rounded-br-md">
-                                            {nmapOutput.Server}
+                                            {result.headers.Server}
                                         </p>
                                     </div>
                                     <div className="flex flex-row items-center rounded-md bg-gray-500  h-6 py-1">
@@ -176,26 +98,42 @@ const Nmap: React.FC<NmapProps> = ({ url }) => {
                                             </a>
                                         </p>
                                     </div>
-                                    <div className="flex flex-row items-center rounded-md bg-gray-500  h-6 py-1">
-                                        <span className="bg-gray-600 px-2 rounded-tl-md rounded-bl-md">
-                                            Strict-Transport-Security:
-                                        </span>
-                                        <Divider />
-                                        <p className="bg-gray-500 px-2 rounded-tr-md rounded-br-md">
-                                            Çalışmıyor
-                                        </p>
-                                    </div>
+                                    {result.headers[
+                                        'Strict-Transport-Security'
+                                    ] && (
+                                        <div className="flex flex-row items-center rounded-md bg-gray-500  h-6 py-1">
+                                            <span className="bg-gray-600 px-2 rounded-tl-md rounded-bl-md">
+                                                Strict-Transport-Security:
+                                            </span>
+                                            <Divider />
+                                            <p className="bg-gray-500 px-2 rounded-tr-md rounded-br-md">
+                                                {
+                                                    result.headers[
+                                                        'Strict-Transport-Security'
+                                                    ]
+                                                }
+                                            </p>
+                                        </div>
+                                    )}
                                 </div>
                                 <div className="w-full flex ml-4 justify-evenly mt-[14px]">
-                                    <div className="flex flex-row items-center rounded-md bg-gray-500  h-6 py-1">
-                                        <span className="bg-gray-600 px-2 rounded-tl-md rounded-bl-md">
-                                            Content-Security-Policy:
-                                        </span>
-                                        <Divider />
-                                        <p className="bg-gray-500 px-2 rounded-tr-md rounded-br-md">
-                                            Çalışmıyor
-                                        </p>
-                                    </div>
+                                    {result.headers[
+                                        'Content-Security-Policy'
+                                    ] && (
+                                        <div className="flex flex-row items-center rounded-md bg-gray-500  h-6 py-1">
+                                            <span className="bg-gray-600 px-2 rounded-tl-md rounded-bl-md">
+                                                Content-Security-Policy:
+                                            </span>
+                                            <Divider />
+                                            <p className="bg-gray-500 px-2 rounded-tr-md rounded-br-md">
+                                                {
+                                                    result.headers[
+                                                        'Content-Security-Policy'
+                                                    ]
+                                                }
+                                            </p>
+                                        </div>
+                                    )}
 
                                     <div className="flex flex-row items-center rounded-md bg-gray-500  h-6 py-1">
                                         <span className="bg-gray-600 px-2 rounded-tl-md rounded-bl-md">
@@ -203,7 +141,7 @@ const Nmap: React.FC<NmapProps> = ({ url }) => {
                                         </span>
                                         <Divider />
                                         <p className="bg-gray-500 px-2 rounded-tr-md rounded-br-md">
-                                            {nmapOutput['Content-Type']}
+                                            {result.headers['Content-Type']}
                                         </p>
                                     </div>
                                 </div>
@@ -241,11 +179,9 @@ const Nmap: React.FC<NmapProps> = ({ url }) => {
                                             <div className="flex justify-between">
                                                 <NmapPort
                                                     status={
-                                                        nmapOutput[
-                                                            'nmap_output'
-                                                        ][
+                                                        result['nmap_output'][
                                                             `${Object.keys(
-                                                                nmapOutput[
+                                                                result[
                                                                     'nmap_output'
                                                                 ]
                                                             )}`
@@ -255,11 +191,9 @@ const Nmap: React.FC<NmapProps> = ({ url }) => {
                                                 />
                                                 <NmapPort
                                                     status={
-                                                        nmapOutput[
-                                                            'nmap_output'
-                                                        ][
+                                                        result['nmap_output'][
                                                             `${Object.keys(
-                                                                nmapOutput[
+                                                                result[
                                                                     'nmap_output'
                                                                 ]
                                                             )}`
@@ -269,11 +203,9 @@ const Nmap: React.FC<NmapProps> = ({ url }) => {
                                                 />
                                                 <NmapPort
                                                     status={
-                                                        nmapOutput[
-                                                            'nmap_output'
-                                                        ][
+                                                        result['nmap_output'][
                                                             `${Object.keys(
-                                                                nmapOutput[
+                                                                result[
                                                                     'nmap_output'
                                                                 ]
                                                             )}`
@@ -283,11 +215,9 @@ const Nmap: React.FC<NmapProps> = ({ url }) => {
                                                 />
                                                 <NmapPort
                                                     status={
-                                                        nmapOutput[
-                                                            'nmap_output'
-                                                        ][
+                                                        result['nmap_output'][
                                                             `${Object.keys(
-                                                                nmapOutput[
+                                                                result[
                                                                     'nmap_output'
                                                                 ]
                                                             )}`
@@ -299,11 +229,9 @@ const Nmap: React.FC<NmapProps> = ({ url }) => {
                                             <div className="flex justify-evenly">
                                                 <NmapPort
                                                     status={
-                                                        nmapOutput[
-                                                            'nmap_output'
-                                                        ][
+                                                        result['nmap_output'][
                                                             `${Object.keys(
-                                                                nmapOutput[
+                                                                result[
                                                                     'nmap_output'
                                                                 ]
                                                             )}`
@@ -313,11 +241,9 @@ const Nmap: React.FC<NmapProps> = ({ url }) => {
                                                 />
                                                 <NmapPort
                                                     status={
-                                                        nmapOutput[
-                                                            'nmap_output'
-                                                        ][
+                                                        result['nmap_output'][
                                                             `${Object.keys(
-                                                                nmapOutput[
+                                                                result[
                                                                     'nmap_output'
                                                                 ]
                                                             )}`
