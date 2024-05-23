@@ -40,6 +40,18 @@ const Nav = () => {
                                 <NavButton position="Contact" />
                             </>
                         )}
+                        {localStorage.getItem('token') &&
+                            window.location.href !==
+                                'http://localhost:5173/attack' && (
+                                <p
+                                    onClick={() => {
+                                        window.location.href = '/attack';
+                                    }}
+                                    className="mr-5 hover:scale-105 transition-all cursor-pointer"
+                                >
+                                    Buraya Ne Yazcağımı Bulamadım
+                                </p>
+                            )}
                         <button
                             onClick={loginModalToggleHandler}
                             className="bg-gradient-to-tr from-gray-500 to-gray-600 hover:scale-105 transition-all px-5 py-3 rounded-xl text-white"
