@@ -9,7 +9,6 @@ import Loading from '../common/Loading';
 import { RootState } from '../../store';
 import attackSlice from '../../store/slices/attackSlice';
 
-
 const SearchBox = () => {
     const dispatch = useDispatch();
     const attackStore = useSelector((state: RootState) => state.attack);
@@ -44,10 +43,9 @@ const SearchBox = () => {
     };
 
     const submitHandler = () => {
+        dispatch(attackSlice.actions.setPosition('loadingPosition'));
         dispatch(attackSlice.actions.setUrl(url));
-        setState((prev) => {
-            return { ...prev, isDone: true };
-        });
+        dispatch(attackSlice.actions.setIsLoading(true));
     };
 
     return (
@@ -78,7 +76,7 @@ const SearchBox = () => {
                 onClick={submitHandler}
             >
                 <div className="ml-3">
-                    {state.isLoading ? (
+                    {attackStore.isLoading ? (
                         <Loading />
                     ) : state.isDone ? (
                         <MdOutlineDone className="text-3xl text-white" />

@@ -9,12 +9,16 @@ export interface AttackSlice {
     selectedAttacks: Array<Attack>;
     url: string;
     error: string | null;
+    isLoading: boolean;
+    position: 'searchPosition' | 'loadingPosition';
 }
 
 const initialState: AttackSlice = {
     selectedAttacks: [],
     url: '',
     error: null,
+    isLoading: false,
+    position: 'searchPosition',
 };
 
 const attackSlice = createSlice({
@@ -35,6 +39,12 @@ const attackSlice = createSlice({
         },
         setError(state, action) {
             state.error = action.payload;
+        },
+        setIsLoading(state, action) {
+            state.isLoading = action.payload;
+        },
+        setPosition(state, action) {
+            state.position = action.payload;
         },
     },
 });

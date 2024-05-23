@@ -31,18 +31,17 @@ const Attack = () => {
         dispatch(attackSlice.actions.setAttacks(selectedAttacks));
     }, [selectedAttacks]);
 
-    const toggler = () => {
-        setIsInitial((prev) => !prev);
-        console.log(selectedAttacks);
-    };
-
     return (
         <div>
             <div className="w-full h-full items-center flex flex-col">
                 <motion.div
                     variants={variants}
                     initial="searchPosition"
-                    animate={isInitial ? 'searchPosition' : 'loadingPosition'}
+                    animate={
+                        attackStore.position === 'searchPosition'
+                            ? 'searchPosition'
+                            : 'loadingPosition'
+                    }
                     transition={{ duration: 0.75 }}
                     exit="searchPosition"
                     className="w-full flex justify-center"
@@ -50,26 +49,28 @@ const Attack = () => {
                     <SearchBox />
                 </motion.div>
                 <AnimatePresence>
-                    {isInitial && (
-                        <motion.div
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: isInitial ? 1 : 0 }}
-                            exit={{ opacity: 0 }}
-                            transition={{ duration: 0.5 }}
-                            className="w-2/3 h-60"
-                        >
-                            <Filter>
-                                <Select
-                                    isInitial={isInitial}
-                                    setSelectedAttacks={setSelectedAttacks}
-                                    selectedAttacks={selectedAttacks}
-                                />
-                            </Filter>
-                        </motion.div>
-                    )}
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{
+                            opacity:
+                                attackStore.position === 'searchPosition'
+                                    ? 1
+                                    : 0,
+                            height: isInitial ? 'auto' : 0,
+                        }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 0.5 }}
+                        className="w-2/3 h-60"
+                    >
+                        <Filter>
+                            <Select
+                                isInitial={isInitial}
+                                setSelectedAttacks={setSelectedAttacks}
+                                selectedAttacks={selectedAttacks}
+                            />
+                        </Filter>
+                    </motion.div>
                 </AnimatePresence>
-
-                <button onClick={toggler}>Toggle</button>
             </div>
             <Result />
         </div>

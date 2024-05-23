@@ -5,15 +5,25 @@ import data from '../../../data/attacks.json';
 import Divider from '../../common/Divider';
 import NmapPort from './NmapPort';
 import Skeleton from '../../common/Skeleton';
+import { useDispatch, useSelector } from 'react-redux';
+import attackSlice from '../../../store/slices/attackSlice';
+import { RootState } from '../../../store';
 
 interface NmapProps {
     url: string;
 }
 
 const Nmap: React.FC<NmapProps> = ({ url }) => {
+    const dispatch = useDispatch();
+    const attackStore = useSelector((state: RootState) => state.attack);
+
     const [isExpanded, setIsExpanded] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
     const [result, setResult] = useState<any>(null);
+
+    useEffect(() => {
+        dispatch(attackSlice.actions.setIsLoading(isLoading));
+    }, [isLoading]);
 
     const expandToggleHandler = () => {
         setIsExpanded((prev) => !prev);
@@ -44,7 +54,11 @@ const Nmap: React.FC<NmapProps> = ({ url }) => {
 
     return (
         <>
-            <div className="w-full flex items-center justify-center">
+            <div
+                className={`w-full flex items-center justify-center transition-all ease-out ${
+                    attackStore.position === 'loadingPosition' ? '' : ''
+                }`}
+            >
                 <div className="flex  text-center flex-col bg-gray-300 rounded-tl-xl rounded-bl-xl">
                     <img
                         src={data[1].image}
