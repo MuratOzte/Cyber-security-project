@@ -40,7 +40,7 @@ const Nmap: React.FC<NmapProps> = ({ url }) => {
                 console.log(err);
                 setIsLoading(false);
             });
-    }, []);
+    }, [url]);
 
     return (
         <>
