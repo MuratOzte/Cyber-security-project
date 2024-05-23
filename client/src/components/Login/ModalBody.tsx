@@ -2,8 +2,15 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { useState } from 'react';
 import Loading from '../common/Loading';
 import Alert from '../common/Alert';
+import { useDispatch } from 'react-redux';
+import uiSlice from '../../store/slices/uiSlice';
+
+import { useNavigate } from 'react-router';
 
 const ModalBody = () => {
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+
     const [data, setData] = useState({
         email: 'admin159@admin.com',
         password: '123456',
@@ -44,6 +51,8 @@ const ModalBody = () => {
 
             const responseData = await response.json();
             localStorage.setItem('token', responseData.token);
+            dispatch(uiSlice.actions.setLoginModal(false));
+            navigate('/attack');
             console.log(responseData);
         } catch (error) {
             console.log(error);

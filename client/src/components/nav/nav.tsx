@@ -3,14 +3,27 @@ import logo from '../../assets/logo.png';
 import { RootState } from '../../store';
 import uiSlice from '../../store/slices/uiSlice';
 import NavButton from './NavButtons';
+import { useState, useEffect } from 'react';
 
 const Nav = () => {
     const dispatch = useDispatch();
+    const [isToken, setIsToken] = useState(false);
 
     const ui = useSelector((state: RootState) => state.ui);
 
+    useEffect(() => {
+        if (localStorage.getItem('token')) {
+            setIsToken(true);
+        }
+    }, [localStorage.getItem('token')]);
+
     const loginModalToggleHandler = () => {
-        dispatch(uiSlice.actions.setLoginModal(!ui.isLoginModalOpen));
+        if (localStorage.getItem('token')) {
+            setIsToken(false);
+            localStorage.removeItem('token');
+        } else {
+            dispatch(uiSlice.actions.setLoginModal(!ui.isLoginModalOpen));
+        }
     };
 
     return (
@@ -34,7 +47,7 @@ const Nav = () => {
                             onClick={loginModalToggleHandler}
                             className="bg-gradient-to-tr from-gray-500 to-gray-600 hover:scale-105 transition-all px-5 py-3 rounded-xl text-white"
                         >
-                            Login
+                            {localStorage.getItem('token') ? 'Logout' : 'Login'}
                         </button>
                     </div>
                 </div>

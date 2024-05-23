@@ -2,7 +2,7 @@ import ModalBody from './ModalBody';
 import ModalHeader from './ModalHeader';
 
 import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import uiSlice from '../../store/slices/uiSlice';
 
 const LoginModal = () => {
