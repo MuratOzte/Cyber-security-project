@@ -35,7 +35,6 @@ const RegisterContainer: React.FC<RegisterContainerProps> = () => {
     const isInView = useInView(ref);
 
     useEffect(() => {
-        console.log(isInView);
         
         if (isInView) {
             dispatch(uiSlice.actions.setNavPosition('Register'));

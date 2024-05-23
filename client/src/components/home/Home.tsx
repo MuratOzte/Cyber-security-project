@@ -10,7 +10,6 @@ const Home = () => {
     const ui = useSelector((state: RootState) => state.ui);
 
     useEffect(() => {
-        console.log(ui.scrollPosition);
 
         if (ui.scrollPosition) {
             homeRef.current?.scrollTo({
