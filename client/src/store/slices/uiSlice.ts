@@ -6,6 +6,7 @@ export interface AttackSlice {
     isLoginModalOpen: boolean;
     scrollPosition: 'Attack' | 'Contact' | 'Register';
     navPosition: 'Attack' | 'Contact' | 'Register';
+    page: 'attack' | 'home';
 }
 
 const initialState: AttackSlice = {
@@ -14,6 +15,7 @@ const initialState: AttackSlice = {
     isLoginModalOpen: false,
     scrollPosition: 'Register',
     navPosition: 'Register',
+    page: 'home',
 };
 
 const attackSlice = createSlice({
@@ -34,6 +36,9 @@ const attackSlice = createSlice({
         },
         setNavPosition(state, action) {
             state.navPosition = action.payload;
+        },
+        setPage(state, action) {
+            state.page = action.payload;
         },
     },
 });

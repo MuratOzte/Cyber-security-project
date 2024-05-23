@@ -1,26 +1,19 @@
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import logo from '../../assets/logo.png';
 import { RootState } from '../../store';
 import uiSlice from '../../store/slices/uiSlice';
 import NavButton from './NavButtons';
-import { useState, useEffect } from 'react';
 
 const Nav = () => {
     const dispatch = useDispatch();
-    const [isToken, setIsToken] = useState(false);
 
     const ui = useSelector((state: RootState) => state.ui);
 
-    useEffect(() => {
-        if (localStorage.getItem('token')) {
-            setIsToken(true);
-        }
-    }, [localStorage.getItem('token')]);
-
     const loginModalToggleHandler = () => {
         if (localStorage.getItem('token')) {
-            setIsToken(false);
             localStorage.removeItem('token');
+            window.location.href = '/';
         } else {
             dispatch(uiSlice.actions.setLoginModal(!ui.isLoginModalOpen));
         }
@@ -40,9 +33,13 @@ const Nav = () => {
                         <p className="text-[24px]">Easyber Security</p>
                     </div>
                     <div className="flex items-center">
-                        <NavButton position="Register" />
-                        <NavButton position="Attack" />
-                        <NavButton position="Contact" />
+                        {!localStorage.getItem('token') && (
+                            <>
+                                <NavButton position="Register" />
+                                <NavButton position="Attack" />
+                                <NavButton position="Contact" />
+                            </>
+                        )}
                         <button
                             onClick={loginModalToggleHandler}
                             className="bg-gradient-to-tr from-gray-500 to-gray-600 hover:scale-105 transition-all px-5 py-3 rounded-xl text-white"

@@ -8,6 +8,7 @@ import Select from './Select';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../store';
 import attackSlice from '../../store/slices/attackSlice';
+import { useNavigate } from 'react-router';
 
 const variants = {
     searchPosition: {
@@ -22,6 +23,7 @@ const variants = {
 
 const Attack = () => {
     const dispatch = useDispatch();
+    const navigate = useNavigate();
     const attackStore = useSelector((state: RootState) => state.attack);
 
     const [isInitial, setIsInitial] = useState(true);

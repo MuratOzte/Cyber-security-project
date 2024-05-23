@@ -18,7 +18,7 @@ const Select: React.FC<SelectProps> = ({
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.75 }}
-            className="flex justify-center mt-5 w-1/3 space-x-[8%] "
+            className="flex justify-center mt-2 w-1/3 space-x-[8%]"
         >
             {Attacks.map((attack) => {
                 return (
@@ -44,7 +44,7 @@ const Select: React.FC<SelectProps> = ({
                         <img
                             src={attack.image}
                             alt={attack.title}
-                            className="rounded-lg rounded-bl-none rounded-br-none"
+                            className="rounded-lg rounded-bl-none rounded-br-none w-24 h-16 mt-2"
                         />
                         <h1 className="py-1 select-none">{attack.title}</h1>
                     </div>
