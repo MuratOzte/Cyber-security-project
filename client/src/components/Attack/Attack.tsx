@@ -67,13 +67,15 @@ const Attack = () => {
                         transition={{ duration: 0.5 }}
                         className="w-2/3 h-60"
                     >
-                        <Filter>
-                            <Select
-                                isInitial={isInitial}
-                                setSelectedAttacks={setSelectedAttacks}
-                                selectedAttacks={selectedAttacks}
-                            />
-                        </Filter>
+                        {attackStore.position === 'searchPosition' && (
+                            <Filter>
+                                <Select
+                                    isInitial={isInitial}
+                                    setSelectedAttacks={setSelectedAttacks}
+                                    selectedAttacks={selectedAttacks}
+                                />
+                            </Filter>
+                        )}
                     </motion.div>
                 </AnimatePresence>
             </div>

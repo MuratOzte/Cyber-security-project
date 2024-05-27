@@ -14,9 +14,11 @@ const Result = () => {
 
     return (
         attackStore.url && (
-            <div className='w-full'>
-                <Nmap url={attackStore.url} />
-                <Curl />
+            <div className="w-full">
+                {attackStore.selectedAttacks.includes('Nmap') && (
+                    <Nmap url={attackStore.url} />
+                )}
+                {attackStore.selectedAttacks.includes('Curl') && <Curl />}
             </div>
         )
     );

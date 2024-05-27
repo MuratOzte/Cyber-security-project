@@ -2,11 +2,11 @@ import { createSlice } from '@reduxjs/toolkit';
 import urlValidation from '../../utils/urlValidation';
 
 export interface Attack {
-    name: string;
+    name: any;
 }
 
 export interface AttackSlice {
-    selectedAttacks: Array<Attack>;
+    selectedAttacks: any[];
     url: string;
     error: string | null;
     isLoading: boolean;
