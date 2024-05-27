@@ -1,1 +1,7 @@
-"\n    \u001b[92m\uff23\uff2f\uff32\uff33\uff39  \u001b[97m{\u001b[37mv1.0-beta\u001b[97m}\u001b[0m\n\n \u001b[91m-\u001b[0m No misconfigurations found.\n"
+[
+  {
+    "name": "v1.0-beta",
+    "version": "v1.0-beta",
+    "status": "No misconfigurations found."
+  }
+]

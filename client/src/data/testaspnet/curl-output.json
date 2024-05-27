@@ -1,1 +1,25 @@
-"HTTP/1.1 200 OK\nCache-Control: private\nContent-Length: 13938\nContent-Type: text/html; charset=utf-8\nServer: Microsoft-IIS/8.5\nX-AspNet-Version: 2.0.50727\nSet-Cookie: ASP.NET_SessionId=qv5s0z552bh20mnvkibyzpul; path=/; HttpOnly\nX-Powered-By: ASP.NET\nDate: Thu, 23 May 2024 18:25:47 GMT\n\n"
+[
+  {
+    "name": "Cache-Control",
+    "value": "private"
+  },
+  {
+    "name": "Content-Length",
+    "value": "13938"
+  },
+  {
+    "name": "Content-Type",
+    "value": "text/html; charset=utf-8"
+  },
+  { "Server": "Microsoft-IIS/8.5" },
+  { "X-AspNet-Version": "2.0.50727" },
+  {
+    "name": "Set-Cookie",
+    "value": "ASP.NET_SessionId=qv5s0z552bh20mnvkibyzpul; path=/; HttpOnly"
+  },
+  { "X-Powered-By": "ASP.NET" },
+  {
+    "name": "Date",
+    "value": "Thu, 23 May 2024 18:25:47 GMT"
+  }
+]

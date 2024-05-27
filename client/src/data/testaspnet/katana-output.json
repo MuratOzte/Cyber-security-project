@@ -1,1 +1,102 @@
-"http://testaspnet.vulnweb.com/\nhttp://testaspnet.vulnweb.com/styles.css\nhttp://testaspnet.vulnweb.com/ads/def.html\nhttp://testaspnet.vulnweb.com/rssFeed.aspx\nhttp://testaspnet.vulnweb.com/Comments.aspx?id=2\nhttp://testaspnet.vulnweb.com/default.aspx\nhttp://testaspnet.vulnweb.com/Signup.aspx\nhttp://testaspnet.vulnweb.com/Comments.aspx?id=3\nhttp://testaspnet.vulnweb.com/ReadNews.aspx?id=0&NewsAd=ads/def.html\nhttp://testaspnet.vulnweb.com/Comments.aspx?id=0\nhttp://testaspnet.vulnweb.com/ReadNews.aspx?id=2&NewsAd=ads/def.html\nhttp://testaspnet.vulnweb.com/login.aspx\nhttp://testaspnet.vulnweb.com/ReadNews.aspx?id=3&NewsAd=ads/def.html\nhttp://testaspnet.vulnweb.com/about.aspx\nhttp://testaspnet.vulnweb.com/ReadNews.aspx?id=3\nhttp://testaspnet.vulnweb.com/ReadNews.aspx?id=0\nhttp://testaspnet.vulnweb.com/ReadNews.aspx?id=2\n"
+[
+  {
+    "url": "http://testaspnet.vulnweb.com/",
+    "status": 200,
+    "title": "Welcome to testaspnet"
+  },
+  {
+    "url": "http://testaspnet.vulnweb.com/styles.css",
+    "status": 200,
+    "title": "styles.css"
+  },
+  {
+    "url": "http://testaspnet.vulnweb.com/ads/def.html",
+    "status": 200,
+    "title": "def.html"
+  },
+  {
+    "url": "http://testaspnet.vulnweb.com/rssFeed.aspx",
+    "status": 200,
+    "title": "RSS Feed"
+  },
+  {
+    "url": "http://testaspnet.vulnweb.com/Comments.aspx?id=2",
+    "status": 200,
+    "title": "Comments"
+  },
+  {
+    "url": "http://testaspnet.vulnweb.com/default.aspx",
+    "status": 200,
+    "title": "Welcome to testaspnet"
+  },
+  {
+    "url": "http://testaspnet.vulnweb.com/Signup.aspx",
+    "status": 200,
+    "title": "Signup"
+  },
+  {
+    "url": "http://testaspnet.vulnweb.com/Comments.aspx?id=3",
+    "status": 200,
+    "title": "Comments"
+  },
+  {
+    "url": "http://testaspnet.vulnweb.com/ReadNews.aspx?id=0&NewsAd=ads/def.html",
+    "status": 200,
+    "title": "ReadNews"
+  },
+  {
+    "url": "http://testaspnet.vulnweb.com/Comments.aspx?id=0",
+    "status": 200,
+    "title": "Comments"
+  },
+  {
+    "url": "http://testaspnet.vulnweb.com/ReadNews.aspx?id=2&NewsAd=ads/def.html",
+    "status": 200,
+    "title": "ReadNews"
+  },
+  {
+    "url": "http://testaspnet.vulnweb.com/login.aspx",
+    "status": 200,
+    "title": "Login"
+  },
+  {
+    "url": "http://testaspnet.vulnweb.com/ReadNews.aspx?id=3&NewsAd=ads/def.html",
+    "status": 200,
+    "title": "ReadNews"
+  },
+  {
+    "url": "http://testaspnet.vulnweb.com/about.aspx",
+    "status": 200,
+    "title": "About"
+  },
+  {
+    "url": "http://testaspnet.vulnweb.com/ReadNews.aspx?id=3",
+    "status": 200,
+    "title": "ReadNews"
+  },
+  {
+    "url": "http://testaspnet.vulnweb.com/ReadNews.aspx?id=0",
+    "status": 200,
+    "title": "ReadNews"
+  },
+  {
+    "url": "http://testaspnet.vulnweb.com/ReadNews.aspx?id=2",
+    "status": 200,
+    "title": "ReadNews"
+  },
+  {
+    "url": "http://testaspnet.vulnweb.com/ReadNews.aspx?id=1",
+    "status": 404,
+    "title": "Not Found"
+  },
+  {
+    "url": "http://testaspnet.vulnweb.com/ReadNews.aspx?id=4",
+    "status": 404,
+    "title": "Not Found"
+  },
+  {
+    "url": "http://testaspnet.vulnweb.com/ReadNews.aspx?id=5",
+    "status": 404,
+    "title": "Not Found"
+  }
+]

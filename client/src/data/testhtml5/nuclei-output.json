@@ -1,1 +1,118 @@
-"[\u001b[92mcaa-fingerprint\u001b[0m] [\u001b[94mdns\u001b[0m] [\u001b[34minfo\u001b[0m] testhtml5.vulnweb.com\n[\u001b[92mspf-record-detect\u001b[0m] [\u001b[94mdns\u001b[0m] [\u001b[34minfo\u001b[0m] testhtml5.vulnweb.com [\u001b[96m\"v=spf1 -all\"\"\u001b[0m]\n[\u001b[92mtxt-fingerprint\u001b[0m] [\u001b[94mdns\u001b[0m] [\u001b[34minfo\u001b[0m] testhtml5.vulnweb.com [\u001b[96m\"\"v=spf1 -all\"\"\u001b[0m]\n[\u001b[92moptions-method\u001b[0m] [\u001b[94mhttp\u001b[0m] [\u001b[34minfo\u001b[0m] http://testhtml5.vulnweb.com [\u001b[96m\"HEAD, OPTIONS, GET\"\u001b[0m]\n[\u001b[92mnginx-version\u001b[0m] [\u001b[94mhttp\u001b[0m] [\u001b[34minfo\u001b[0m] http://testhtml5.vulnweb.com [\u001b[96m\"nginx/1.19.0\"\u001b[0m]\n[\u001b[92mtech-detect\u001b[0m:\u001b[1;92mangularjs\u001b[0m] [\u001b[94mhttp\u001b[0m] [\u001b[34minfo\u001b[0m] http://testhtml5.vulnweb.com\n[\u001b[92mtech-detect\u001b[0m:\u001b[1;92mgoogle-font-api\u001b[0m] [\u001b[94mhttp\u001b[0m] [\u001b[34minfo\u001b[0m] http://testhtml5.vulnweb.com\n[\u001b[92mtech-detect\u001b[0m:\u001b[1;92mangular\u001b[0m] [\u001b[94mhttp\u001b[0m] [\u001b[34minfo\u001b[0m] http://testhtml5.vulnweb.com\n[\u001b[92mtech-detect\u001b[0m:\u001b[1;92mnginx\u001b[0m] [\u001b[94mhttp\u001b[0m] [\u001b[34minfo\u001b[0m] http://testhtml5.vulnweb.com\n[\u001b[92mform-detection\u001b[0m] [\u001b[94mhttp\u001b[0m] [\u001b[34minfo\u001b[0m] http://testhtml5.vulnweb.com\n[\u001b[92mhttp-missing-security-headers\u001b[0m:\u001b[1;92mcontent-security-policy\u001b[0m] [\u001b[94mhttp\u001b[0m] [\u001b[34minfo\u001b[0m] http://testhtml5.vulnweb.com\n[\u001b[92mhttp-missing-security-headers\u001b[0m:\u001b[1;92mx-frame-options\u001b[0m] [\u001b[94mhttp\u001b[0m] [\u001b[34minfo\u001b[0m] http://testhtml5.vulnweb.com\n[\u001b[92mhttp-missing-security-headers\u001b[0m:\u001b[1;92mx-permitted-cross-domain-policies\u001b[0m] [\u001b[94mhttp\u001b[0m] [\u001b[34minfo\u001b[0m] http://testhtml5.vulnweb.com\n[\u001b[92mhttp-missing-security-headers\u001b[0m:\u001b[1;92mcross-origin-embedder-policy\u001b[0m] [\u001b[94mhttp\u001b[0m] [\u001b[34minfo\u001b[0m] http://testhtml5.vulnweb.com\n[\u001b[92mhttp-missing-security-headers\u001b[0m:\u001b[1;92mcross-origin-opener-policy\u001b[0m] [\u001b[94mhttp\u001b[0m] [\u001b[34minfo\u001b[0m] http://testhtml5.vulnweb.com\n[\u001b[92mhttp-missing-security-headers\u001b[0m:\u001b[1;92mcross-origin-resource-policy\u001b[0m] [\u001b[94mhttp\u001b[0m] [\u001b[34minfo\u001b[0m] http://testhtml5.vulnweb.com\n[\u001b[92mhttp-missing-security-headers\u001b[0m:\u001b[1;92mstrict-transport-security\u001b[0m] [\u001b[94mhttp\u001b[0m] [\u001b[34minfo\u001b[0m] http://testhtml5.vulnweb.com\n[\u001b[92mhttp-missing-security-headers\u001b[0m:\u001b[1;92mpermissions-policy\u001b[0m] [\u001b[94mhttp\u001b[0m] [\u001b[34minfo\u001b[0m] http://testhtml5.vulnweb.com\n[\u001b[92mhttp-missing-security-headers\u001b[0m:\u001b[1;92mx-content-type-options\u001b[0m] [\u001b[94mhttp\u001b[0m] [\u001b[34minfo\u001b[0m] http://testhtml5.vulnweb.com\n[\u001b[92mhttp-missing-security-headers\u001b[0m:\u001b[1;92mreferrer-policy\u001b[0m] [\u001b[94mhttp\u001b[0m] [\u001b[34minfo\u001b[0m] http://testhtml5.vulnweb.com\n[\u001b[92mhttp-missing-security-headers\u001b[0m:\u001b[1;92mclear-site-data\u001b[0m] [\u001b[94mhttp\u001b[0m] [\u001b[34minfo\u001b[0m] http://testhtml5.vulnweb.com\n[\u001b[92mmissing-sri\u001b[0m] [\u001b[94mhttp\u001b[0m] [\u001b[34minfo\u001b[0m] http://testhtml5.vulnweb.com [\u001b[96m\"http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/js/bootstrap.min.js\"\u001b[0m,\u001b[96m\"https://ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular.min.js\"\u001b[0m,\u001b[96m\"http://bxss.s3.amazonaws.com/ad.js\"\u001b[0m,\u001b[96m\"http://code.jquery.com/jquery-1.9.1.min.js\"\u001b[0m]\n[\u001b[92mwaf-detect\u001b[0m:\u001b[1;92mnginxgeneric\u001b[0m] [\u001b[94mhttp\u001b[0m] [\u001b[34minfo\u001b[0m] http://testhtml5.vulnweb.com\n"
+[
+  { "name": "caa-fingerprint", "type": "dns", "info": "testhtml5.vulnweb.com" },
+  {
+    "name": "spf-record-detect",
+    "type": "dns",
+    "info": "testhtml5.vulnweb.com",
+    "value": "\"v=spf1 -all\"\""
+  },
+  {
+    "name": "txt-fingerprint",
+    "type": "dns",
+    "info": "testhtml5.vulnweb.com",
+    "value": "\"\"v=spf1 -all\"\""
+  },
+  {
+    "name": "options-method",
+    "type": "http",
+    "info": "http://testhtml5.vulnweb.com",
+    "value": "\"HEAD, OPTIONS, GET\""
+  },
+  {
+    "name": "nginx-version",
+    "type": "http",
+    "info": "http://testhtml5.vulnweb.com",
+    "value": "\"nginx/1.19.0\""
+  },
+  {
+    "name": "tech-detect:angularjs",
+    "type": "http",
+    "info": "http://testhtml5.vulnweb.com"
+  },
+  {
+    "name": "tech-detect:google-font-api",
+    "type": "http",
+    "info": "http://testhtml5.vulnweb.com"
+  },
+  {
+    "name": "tech-detect:angular",
+    "type": "http",
+    "info": "http://testhtml5.vulnweb.com"
+  },
+  {
+    "name": "tech-detect:nginx",
+    "type": "http",
+    "info": "http://testhtml5.vulnweb.com"
+  },
+  {
+    "name": "form-detection",
+    "type": "http",
+    "info": "http://testhtml5.vulnweb.com"
+  },
+  {
+    "name": "http-missing-security-headers:content-security-policy",
+    "type": "http",
+    "info": "http://testhtml5.vulnweb.com"
+  },
+  {
+    "name": "http-missing-security-headers:x-frame-options",
+    "type": "http",
+    "info": "http://testhtml5.vulnweb.com"
+  },
+  {
+    "name": "http-missing-security-headers:x-permitted-cross-domain-policies",
+    "type": "http",
+    "info": "http://testhtml5.vulnweb.com"
+  },
+  {
+    "name": "http-missing-security-headers:cross-origin-embedder-policy",
+    "type": "http",
+    "info": "http://testhtml5.vulnweb.com"
+  },
+  {
+    "name": "http-missing-security-headers:cross-origin-opener-policy",
+    "type": "http",
+    "info": "http://testhtml5.vulnweb.com"
+  },
+  {
+    "name": "http-missing-security-headers:cross-origin-resource-policy",
+    "type": "http",
+    "info": "http://testhtml5.vulnweb.com"
+  },
+  {
+    "name": "http-missing-security-headers:strict-transport-security",
+    "type": "http",
+    "info": "http://testhtml5.vulnweb.com"
+  },
+  {
+    "name": "http-missing-security-headers:permissions-policy",
+    "type": "http",
+    "info": "http://testhtml5.vulnweb.com"
+  },
+  {
+    "name": "http-missing-security-headers:x-content-type-options",
+    "type": "http",
+    "info": "http://testhtml5.vulnweb.com"
+  },
+  {
+    "name": "http-missing-security-headers:referrer-policy",
+    "type": "http",
+    "info": "http://testhtml5.vulnweb.com"
+  },
+  {
+    "name": "http-missing-security-headers:clear-site-data",
+    "type": "http",
+    "info": "http://testhtml5.vulnweb.com"
+  },
+  {
+    "name": "missing-sri",
+    "type": "http",
+    "info": "http://testhtml5.vulnweb.com",
+    "value": "\"http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/js/bootstrap.min.js\",\"https://ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular.min.js\",\"http://bxss.s3.amazonaws.com/ad.js\",\"http://code.jquery.com/jquery-1.9.1.min.js\""
+  },
+  {
+    "name": "waf-detect:nginxgeneric",
+    "type": "http",
+    "info": "http://testhtml5.vulnweb.com"
+  }
+]

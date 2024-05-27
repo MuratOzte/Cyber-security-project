@@ -1,1 +1,67 @@
-"http://testhtml5.vulnweb.com\nhttp://testhtml5.vulnweb.com/static/app/services/itemsService.js\nhttp://testhtml5.vulnweb.com/static/app/controllers/controllers.js\nhttp://testhtml5.vulnweb.com/static/css/style.css\nhttp://testhtml5.vulnweb.com/static/app/app.js\nhttp://testhtml5.vulnweb.com/static/app/post.js\nhttp://testhtml5.vulnweb.com/static/app/libs/sessvars.js\nhttp://testhtml5.vulnweb.com/ajax/like?id=\nhttp://testhtml5.vulnweb.com/admin/\nhttp://testhtml5.vulnweb.com/ajax/archive\nhttp://testhtml5.vulnweb.com/ajax/popular?offset=\nhttp://testhtml5.vulnweb.com/ajax/latest?offset=\nhttp://testhtml5.vulnweb.com/static/app/partials/\n"
+[
+  {
+    "url": "http://testhtml5.vulnweb.com",
+    "status": "200",
+    "title": "Test HTML5"
+  },
+  {
+    "url": "http://testhtml5.vulnweb.com/static/app/services/itemsService.js",
+    "status": "200",
+    "title": "itemsService.js"
+  },
+  {
+    "url": "http://testhtml5.vulnweb.com/static/app/controllers/controllers.js",
+    "status": "200",
+    "title": "controllers.js"
+  },
+  {
+    "url": "http://testhtml5.vulnweb.com/static/css/style.css",
+    "status": "200",
+    "title": "style.css"
+  },
+  {
+    "url": "http://testhtml5.vulnweb.com/static/app/app.js",
+    "status": "200",
+    "title": "app.js"
+  },
+  {
+    "url": "http://testhtml5.vulnweb.com/static/app/post.js",
+    "status": "200",
+    "title": "post.js"
+  },
+  {
+    "url": "http://testhtml5.vulnweb.com/static/app/libs/sessvars.js",
+    "status": "200",
+    "title": "sessvars.js"
+  },
+  {
+    "url": "http://testhtml5.vulnweb.com/ajax/like?id=",
+    "status": "200",
+    "title": "like?id="
+  },
+  {
+    "url": "http://testhtml5.vulnweb.com/admin/",
+    "status": "200",
+    "title": "admin"
+  },
+  {
+    "url": "http://testhtml5.vulnweb.com/ajax/archive",
+    "status": "200",
+    "title": "archive"
+  },
+  {
+    "url": "http://testhtml5.vulnweb.com/ajax/popular?offset=",
+    "status": "200",
+    "title": "popular?offset="
+  },
+  {
+    "url": "http://testhtml5.vulnweb.com/ajax/latest?offset=",
+    "status": "200",
+    "title": "latest?offset="
+  },
+  {
+    "url": "http://testhtml5.vulnweb.com/static/app/partials/",
+    "status": "200",
+    "title": "partials/"
+  }
+]

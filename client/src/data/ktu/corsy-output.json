@@ -1,1 +1,9 @@
-"\n    \u001b[92m\uff23\uff2f\uff32\uff33\uff39  \u001b[97m{\u001b[37mv1.0-beta\u001b[97m}\u001b[0m\n\n \u001b[91m-\u001b[0m No misconfigurations found.\n"
+[
+  {
+    "title": "CORS",
+    "description": "Cross-Origin Resource Sharing (CORS) is a mechanism that uses additional HTTP headers to tell browsers to give a web application running at one origin, access to selected resources from a different origin. A web application makes a cross-origin HTTP request when it requests a resource that has a different origin (domain, protocol, and port) than its own origin.",
+    "severity": "info",
+    "recommendation": "It is recommended to set the CORS policy to only allow trusted origins. This can be done by setting the Access-Control-Allow-Origin header to the trusted origin. For example, if the web application is hosted at https://example.com, the Access-Control-Allow-Origin header should be set to https://example.com.",
+    "references": ["https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS"]
+  }
+]

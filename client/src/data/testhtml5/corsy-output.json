@@ -1,1 +1,11 @@
-"\n    \u001b[92m\uff23\uff2f\uff32\uff33\uff39  \u001b[97m{\u001b[37mv1.0-beta\u001b[97m}\u001b[0m\n\n \u001b[92m+\u001b[0m http://testhtml5.vulnweb.com\n   \u001b[93m-\u001b[0m Class: wildcard value\n   \u001b[93m-\u001b[0m Description: This host allows requests made from any origin. However, browsers will block all requests to this host by default.\n   \u001b[93m-\u001b[0m Severity: low\n   \u001b[93m-\u001b[0m Exploitation: Not possible\n   \u001b[93m-\u001b[0m ACAO Header: *\n   \u001b[93m-\u001b[0m ACAC Header: None\n\n"
+[
+  {
+    "url": "http://testhtml5.vulnweb.com",
+    "class": "wildcard value",
+    "description": "This host allows requests made from any origin. However, browsers will block all requests to this host by default.",
+    "severity": "low",
+    "exploitation": "Not possible",
+    "acoa_header": "*",
+    "acac_header": "None"
+  }
+]

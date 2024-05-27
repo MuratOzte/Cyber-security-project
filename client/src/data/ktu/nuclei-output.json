@@ -1,1 +1,44 @@
-"[\u001b[92mcaa-fingerprint\u001b[0m] [\u001b[94mdns\u001b[0m] [\u001b[34minfo\u001b[0m] bys.ktu.edu.tr\n[\u001b[92moptions-method\u001b[0m] [\u001b[94mhttp\u001b[0m] [\u001b[34minfo\u001b[0m] https://bys.ktu.edu.tr/ [\u001b[96m\"OPTIONS, TRACE, GET, HEAD, POST\"\u001b[0m]\n[\u001b[92memail-extractor\u001b[0m] [\u001b[94mhttp\u001b[0m] [\u001b[34minfo\u001b[0m] https://bys.ktu.edu.tr/ [\u001b[96m\"info@example.com\"\u001b[0m]\n[\u001b[92mtech-detect\u001b[0m:\u001b[1;92mbootstrap\u001b[0m] [\u001b[94mhttp\u001b[0m] [\u001b[34minfo\u001b[0m] https://bys.ktu.edu.tr/\n[\u001b[92mtech-detect\u001b[0m:\u001b[1;92mmicrosoft-asp.net\u001b[0m] [\u001b[94mhttp\u001b[0m] [\u001b[34minfo\u001b[0m] https://bys.ktu.edu.tr/\n[\u001b[92mtech-detect\u001b[0m:\u001b[1;92mfont-awesome\u001b[0m] [\u001b[94mhttp\u001b[0m] [\u001b[34minfo\u001b[0m] https://bys.ktu.edu.tr/\n"
+[
+  {
+    "name": "caa-fingerprint",
+    "category": "dns",
+    "url": "https://bys.ktu.edu.tr",
+    "info": "bys.ktu.edu.tr"
+  },
+  {
+    "name": "options-method",
+    "category": "http",
+    "url": "https://bys.ktu.edu.tr/",
+    "info": "\"OPTIONS, TRACE, GET, HEAD, POST\""
+  },
+  {
+    "name": "email-extractor",
+    "category": "http",
+    "url": "https://bys.ktu.edu.tr/",
+    "info": "/"
+  },
+  {
+    "name": "tech-detect",
+    "category": "http",
+    "url": "https://bys.ktu.edu.tr/",
+    "info": "bootstrap"
+  },
+  {
+    "name": "tech-detect",
+    "category": "http",
+    "url": "https://bys.ktu.edu.tr/",
+    "info": "microsoft-asp.net"
+  },
+  {
+    "name": "tech-detect",
+    "category": "http",
+    "url": "https://bys.ktu.edu.tr/",
+    "info": "font-awesome"
+  },
+  {
+    "name": "tech-detect",
+    "category": "http",
+    "url": "https://bys.ktu.edu.tr/",
+    "info": "bootstrap"
+  }
+]

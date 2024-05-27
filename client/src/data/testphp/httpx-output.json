@@ -1,1 +1,11 @@
-"http://testphp.vulnweb.com/ [\u001b[32mSUCCESS\u001b[0m] [\u001b[32m200\u001b[0m] [\u001b[36mHome of Acunetix Art\u001b[0m] [nginx/1.19.0] [44.228.249.3] [\u001b[35mDreamWeaver,Nginx:1.19.0,PHP:5.6.40,Ubuntu\u001b[0m]\n"
+[
+  {
+    "url": "http://testphp.vulnweb.com/",
+    "status": "SUCCESS",
+    "statusCode": 200,
+    "title": "Home of Acunetix Art",
+    "server": "nginx/1.19.0",
+    "ip": "44.228.249.3",
+    "technologies": ["DreamWeaver", "Nginx:1.19.0", "PHP:5.6.40", "Ubuntu"]
+  }
+]
