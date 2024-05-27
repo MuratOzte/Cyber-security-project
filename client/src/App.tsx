@@ -8,9 +8,13 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 function App() {
     const ui = useSelector((state: RootState) => state.ui);
-
+    
+    if (window.location.pathname === '/') {
+        const body = document.querySelector('body');
+        body?.style.setProperty('overflow', 'hidden');
+    }
     return (
-        <>
+        <div className="overflow-hidden">
             <AnimatePresence>
                 {ui.isLoginModalOpen && (
                     <>
@@ -27,7 +31,7 @@ function App() {
                 )}
             </AnimatePresence>
             <Home />
-        </>
+        </div>
     );
 }
 

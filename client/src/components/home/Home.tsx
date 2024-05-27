@@ -10,7 +10,6 @@ const Home = () => {
     const ui = useSelector((state: RootState) => state.ui);
 
     useEffect(() => {
-
         if (ui.scrollPosition) {
             homeRef.current?.scrollTo({
                 top: document.getElementById(ui.scrollPosition)?.offsetTop,
@@ -21,7 +20,7 @@ const Home = () => {
     return (
         <div
             ref={homeRef}
-            className="snap-mandatory snap-y h-screen overflow-y-scroll"
+            className="snap-mandatory snap-y h-screen overflow-scroll"
         >
             <div className="snap-center snap-always" id="Register">
                 <Hero />

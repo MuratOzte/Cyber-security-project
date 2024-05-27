@@ -36,7 +36,6 @@ body {
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     color: beige;
     height: 100vh;
-    overflow-y: hidden;
 }
 
 ::-webkit-scrollbar{

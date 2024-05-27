@@ -26,6 +26,9 @@ const Attack = () => {
     const navigate = useNavigate();
     const attackStore = useSelector((state: RootState) => state.attack);
 
+    const body = document.querySelector('body');
+    body?.style.setProperty('overflow', 'scroll');
+
     const [isInitial, setIsInitial] = useState(true);
     const [selectedAttacks, setSelectedAttacks] = useState([]);
 
@@ -34,7 +37,7 @@ const Attack = () => {
     }, [selectedAttacks]);
 
     return (
-        <div>
+        <div className="w-full h-auto">
             <div className="w-full h-full items-center flex flex-col">
                 <motion.div
                     variants={variants}
