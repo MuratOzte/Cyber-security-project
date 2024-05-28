@@ -43,12 +43,12 @@ const Corsy = () => {
         <div className="w-full flex items-center justify-center transition-all ease-out">
             <div className="flex text-center flex-col bg-gray-300 rounded-tl-xl rounded-bl-xl">
                 <img
-                    src={data[2].image}
+                    src={data[3].image}
                     alt="ResultBox"
                     className="w-48 h-[107.5px] rounded-tl-xl p-2"
                 />
                 <p className="text-gray-600 uppercase border-t-[1px] text-sm py-[6px] border-t-gray-600">
-                    {data[2].title}
+                    {data[3].title}
                 </p>
             </div>
             {isLoading ? (
@@ -63,12 +63,12 @@ const Corsy = () => {
                 <div
                     className={`w-2/3 relative min-h-[140px] bg-gray-800 rounded-tr-xl rounded-br-xl origin-left transition-[height] duration-700 px-5 pt-2`}
                 >
-                    <ul className="text-white flex flex-wrap justify-evenly w-full">
+                    <ul className="text-white flex justify-evenly">
                         {result &&
                             result.map((item: any, index: number) => (
                                 <li
                                     key={index}
-                                    className="flex flex-col overflow-hidden p-2 py-1 box-border"
+                                    className="flex flex-wrap p-2 py-1 space-y-2"
                                 >
                                     {Object.entries(item).map(
                                         (
@@ -76,14 +76,19 @@ const Corsy = () => {
                                             innerIndex: number
                                         ) => (
                                             <div
-                                                className="flex flex-row"
+                                                className="flex flex-row mx-auto"
                                                 key={innerIndex}
                                             >
-                                                <span className="bg-gray-600 px-2 rounded-tl-md rounded-bl-md">
+                                                <span className="bg-gray-600 px-2 rounded-tl-md rounded-bl-md flex items-center">
                                                     {key}
                                                 </span>
-                                                <Divider />
-                                                <p className="bg-gray-500 px-2 rounded-tr-md rounded-br-md">
+                                                <p
+                                                    className={`bg-gray-500 px-2 rounded-tr-md rounded-br-md flex items-center lowercase ${
+                                                        value.length > 100
+                                                            ? 'text-sm'
+                                                            : ''
+                                                    }`}
+                                                >
                                                     {value}
                                                 </p>
                                             </div>
