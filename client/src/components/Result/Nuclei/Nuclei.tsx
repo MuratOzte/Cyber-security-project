@@ -73,10 +73,15 @@ const Nuclei = () => {
                 </div>
             ) : (
                 <motion.div
-                    className={`w-2/3 relative bg-gray-700 ${isExpanded ? 'h-[550px]' : 'h-[190px]'} overflow-hidden
+                    className={`w-2/3 relative bg-gray-700 ${
+                        isExpanded ? 'h-[550px]' : 'h-[190px]'
+                    } overflow-hidden
                     } rounded-tr-xl rounded-br-xl origin-left transition-[height] duration-700 px-5 pb-4 flex flex-wrap justify-center`}
                 >
-                    {result && result.map((e: any) => <NucleiBox item={e} />)}
+                    {result &&
+                        result.map((e: any, index: number) => (
+                            <NucleiBox key={'key-' + index} item={e} />
+                        ))}
                     <div className="absolute right-4 bottom-2 cursor-pointer hover:scale-125  transition-all">
                         <MdExpandMore
                             onClick={expandToggleHandler}
