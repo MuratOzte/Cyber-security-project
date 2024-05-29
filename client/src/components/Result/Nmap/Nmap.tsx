@@ -18,7 +18,7 @@ const Nmap: React.FC<NmapProps> = ({ url }) => {
     const attackStore = useSelector((state: RootState) => state.attack);
 
     const [isExpanded, setIsExpanded] = useState(false);
-    const [isLoading, setIsLoading] = useState(false);
+    const [isLoading, setIsLoading] = useState(true);
     const [result, setResult] = useState<any>(null);
 
     useEffect(() => {
@@ -29,28 +29,28 @@ const Nmap: React.FC<NmapProps> = ({ url }) => {
         setIsExpanded((prev) => !prev);
     };
 
-    useEffect(() => {
-        setIsLoading(true);
-        fetch('http://localhost:3000/test/nmap', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                Authorization: `Bearer ${localStorage.getItem('token')}`,
-            },
-            body: JSON.stringify({ url }),
-        })
-            .then((res) => res.json())
-            .then((data) => {
-                const response = data;
-                setResult(response);
-                console.log(response);
-                setIsLoading(false);
-            })
-            .catch((err) => {
-                console.log(err);
-                setIsLoading(false);
-            });
-    }, [url]);
+    // useEffect(() => {
+    //     setIsLoading(true);
+    //     fetch('http://localhost:3000/test/nmap', {
+    //         method: 'POST',
+    //         headers: {
+    //             'Content-Type': 'application/json',
+    //             Authorization: `Bearer ${localStorage.getItem('token')}`,
+    //         },
+    //         body: JSON.stringify({ url }),
+    //     })
+    //         .then((res) => res.json())
+    //         .then((data) => {
+    //             const response = data;
+    //             setResult(response);
+    //             console.log(response);
+    //             setIsLoading(false);
+    //         })
+    //         .catch((err) => {
+    //             console.log(err);
+    //             setIsLoading(false);
+    //         });
+    // }, [url]);
 
     return (
         <>
@@ -71,7 +71,7 @@ const Nmap: React.FC<NmapProps> = ({ url }) => {
                 </div>
                 {isLoading && (
                     <div
-                        className={`w-2/3 relative bg-gray-800 ${
+                        className={`w-2/3 relative bg-gray-700 ${
                             isExpanded ? 'h-[360px]' : 'h-[140px]'
                         } rounded-tr-xl rounded-br-xl origin-left transition-[height] duration-700 px-5 pt-2`}
                     >
@@ -80,7 +80,7 @@ const Nmap: React.FC<NmapProps> = ({ url }) => {
                 )}
                 {!isLoading && result && (
                     <motion.div
-                        className={`w-2/3 relative bg-gray-800 ${
+                        className={`w-2/3 relative bg-gray-700 ${
                             isExpanded ? 'h-[360px]' : 'h-[140px]'
                         } rounded-tr-xl rounded-br-xl origin-left transition-[height] duration-700 px-5 pt-2`}
                     >

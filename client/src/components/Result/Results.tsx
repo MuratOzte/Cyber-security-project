@@ -17,14 +17,14 @@ const Result = () => {
 
     return (
         attackStore.url && (
-            <div className="w-full">
+            <div className="w-full space-y-5">
                 {attackStore.selectedAttacks.includes('Nmap') && (
                     <Nmap url={attackStore.url} />
                 )}
                 {attackStore.selectedAttacks.includes('Curl') && <Curl />}
-                <Corsy />
-                <Httpx />
-                <Nuclei />
+                {attackStore.selectedAttacks.includes('Corsy - Cors') && <Corsy />}
+                {attackStore.selectedAttacks.includes('Httpx') && <Httpx />}
+                {attackStore.selectedAttacks.includes('Nuclei') && <Nuclei />}
             </div>
         )
     );
