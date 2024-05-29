@@ -6,6 +6,7 @@ import { useEffect } from 'react';
 import Curl from './Curl';
 import Corsy from './Corsy';
 import Httpx from './Httpx';
+import Nuclei from './Nuclei/Nuclei';
 
 const Result = () => {
     const attackStore = useSelector((state: RootState) => state.attack);
@@ -16,13 +17,14 @@ const Result = () => {
 
     return (
         attackStore.url && (
-            <div className="w-full">
+            <div className="w-full space-y-5">
                 {attackStore.selectedAttacks.includes('Nmap') && (
                     <Nmap url={attackStore.url} />
                 )}
                 {attackStore.selectedAttacks.includes('Curl') && <Curl />}
-                <Corsy />
-                <Httpx />
+                {attackStore.selectedAttacks.includes('Corsy - Cors') && <Corsy />}
+                {attackStore.selectedAttacks.includes('Httpx') && <Httpx />}
+                {attackStore.selectedAttacks.includes('Nuclei') && <Nuclei />}
             </div>
         )
     );
