@@ -17,6 +17,11 @@ const Nuclei = () => {
 
     const [result, setResult] = useState<any>(null);
     const [isLoading, setIsLoading] = useState(false);
+    const [isExpanded, setIsExpanded] = useState(false);
+
+    const expandToggleHandler = () => {
+        setIsExpanded((prev) => !prev);
+    };
 
     useEffect(() => {
         setIsLoading(true);
@@ -68,10 +73,20 @@ const Nuclei = () => {
                 </div>
             ) : (
                 <motion.div
-                    className={`w-2/3 relative bg-nav
+                    className={`w-2/3 relative bg-nav ${isExpanded ? 'h-[550px]' : 'h-[190px]'} overflow-hidden
                     } rounded-tr-xl rounded-br-xl origin-left transition-[height] duration-700 px-5 pb-4 flex flex-wrap justify-center`}
                 >
                     {result && result.map((e: any) => <NucleiBox item={e} />)}
+                    <div className="absolute right-4 bottom-2 cursor-pointer hover:scale-125  transition-all">
+                        <MdExpandMore
+                            onClick={expandToggleHandler}
+                            size={32}
+                            color="white"
+                            className={`${
+                                isExpanded ? 'rotate-180' : null
+                            } transition-transform delay-50 duration-300`}
+                        />
+                    </div>
                 </motion.div>
             )}
         </div>
