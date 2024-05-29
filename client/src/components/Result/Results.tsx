@@ -6,6 +6,7 @@ import { useEffect } from 'react';
 import Curl from './Curl';
 import Corsy from './Corsy';
 import Httpx from './Httpx';
+import Nuclei from './Nuclei/Nuclei';
 
 const Result = () => {
     const attackStore = useSelector((state: RootState) => state.attack);
@@ -23,6 +24,7 @@ const Result = () => {
                 {attackStore.selectedAttacks.includes('Curl') && <Curl />}
                 <Corsy />
                 <Httpx />
+                <Nuclei />
             </div>
         )
     );
