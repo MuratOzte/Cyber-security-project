@@ -7,6 +7,7 @@ export interface AttackSlice {
     error: string | null;
     isLoading: boolean;
     position: 'searchPosition' | 'loadingPosition';
+    isNmapFinised: boolean;
 }
 
 const initialState: AttackSlice = {
@@ -22,6 +23,7 @@ const initialState: AttackSlice = {
     error: null,
     isLoading: false,
     position: 'searchPosition',
+    isNmapFinised: false,
 };
 
 const attackSlice = createSlice({
@@ -48,6 +50,9 @@ const attackSlice = createSlice({
         },
         setPosition(state, action) {
             state.position = action.payload;
+        },
+        setIsNmapFinished(state, action) {
+            state.isNmapFinised = action.payload;
         },
     },
 });

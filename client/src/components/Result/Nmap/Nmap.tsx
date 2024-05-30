@@ -43,7 +43,7 @@ const Nmap: React.FC<NmapProps> = ({ url }) => {
             .then((data) => {
                 const response = data;
                 setResult(response);
-                console.log(response);
+                dispatch(attackSlice.actions.setIsNmapFinished(true));
                 setIsLoading(false);
             })
             .catch((err) => {
