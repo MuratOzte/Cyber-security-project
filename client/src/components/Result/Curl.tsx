@@ -68,7 +68,7 @@ const Curl = () => {
             ) : (
                 <motion.div
                     className={`w-2/3 relative bg-gray-700 ${
-                        false ? 'h-[360px]' : 'h-[140px]'
+                        false ? 'h-[360px]' : 'h-[160px]'
                     } rounded-tr-xl rounded-br-xl origin-left transition-[height] duration-700 px-5 pt-2`}
                 >
                     <ul className="text-white flex flex-wrap justify-evenly">
@@ -76,7 +76,7 @@ const Curl = () => {
                             result.map((item: any, index: number) => (
                                 <li
                                     key={index}
-                                    className="flex flex-col overflow-hidden p-2 py-1 box-border"
+                                    className="flex flex-col overflow-hidden p-2 py-1 box-border mt-4"
                                 >
                                     <div className="flex flex-row">
                                         <span className="bg-gray-600 px-2 rounded-tl-md rounded-bl-md">

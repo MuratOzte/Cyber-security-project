@@ -7,7 +7,7 @@ interface NucleiBoxProps {
 
 const KatanaOuterBox: React.FC<NucleiBoxProps> = ({ item }) => {
     return (
-        <div className="bg-nav border-gray-500 border-solid border-2 p-3 shadow-sm shadow-gray-500 rounded-md w-auto mx-5 mt-4 flex flex-col justify-center space-y-3 flex">
+        <div className="bg-nav border-gray-500 border-solid border-2 p-3 shadow-sm shadow-gray-500 rounded-md w-auto mx-5 mt-4 flex flex-col justify-center space-y-3">
             {item &&
                 Object.entries(item).map(([key, value]) => {
                     console.log(`Key: ${key}, Value: ${value}`);

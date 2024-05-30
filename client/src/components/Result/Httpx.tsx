@@ -68,7 +68,7 @@ const Httpx = () => {
                             result.map((item: any, index: number) => (
                                 <li
                                     key={index}
-                                    className="flex flex-wrap p-2 py-1 space-y-6"
+                                    className="flex flex-wrap p-2 py-1"
                                 >
                                     {Object.entries(item).map(
                                         (
@@ -76,7 +76,7 @@ const Httpx = () => {
                                             innerIndex: number
                                         ) => (
                                             <div
-                                                className="flex flex-row mx-auto"
+                                                className="flex flex-row mx-auto mt-5"
                                                 key={innerIndex}
                                             >
                                                 <span className="bg-gray-600 px-2 rounded-tl-md rounded-bl-md flex items-center">

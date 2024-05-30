@@ -74,7 +74,7 @@ const Nuclei = () => {
             ) : (
                 <motion.div
                     className={`w-2/3 relative bg-gray-700 ${
-                        isExpanded ? 'h-[550px]' : 'h-[190px]'
+                        isExpanded ? 'h-[530px]' : 'h-[190px]'
                     } overflow-hidden
                     } rounded-tr-xl rounded-br-xl origin-left transition-[height] duration-700 px-5 pb-4 flex flex-wrap justify-center`}
                 >
