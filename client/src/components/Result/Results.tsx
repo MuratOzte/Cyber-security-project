@@ -7,6 +7,7 @@ import Curl from './Curl';
 import Corsy from './Corsy';
 import Httpx from './Httpx';
 import Nuclei from './Nuclei/Nuclei';
+import Katana from './Katana/Katana';
 
 const Result = () => {
     const attackStore = useSelector((state: RootState) => state.attack);
@@ -22,9 +23,12 @@ const Result = () => {
                     <Nmap url={attackStore.url} />
                 )}
                 {attackStore.selectedAttacks.includes('Curl') && <Curl />}
-                {attackStore.selectedAttacks.includes('Corsy - Cors') && <Corsy />}
+                {attackStore.selectedAttacks.includes('Corsy - Cors') && (
+                    <Corsy />
+                )}
                 {attackStore.selectedAttacks.includes('Httpx') && <Httpx />}
                 {attackStore.selectedAttacks.includes('Nuclei') && <Nuclei />}
+                <Katana />
             </div>
         )
     );
