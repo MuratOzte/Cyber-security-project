@@ -30,7 +30,14 @@ const Attack = () => {
     body?.style.setProperty('overflow', 'scroll');
 
     const [isInitial, setIsInitial] = useState(true);
-    const [selectedAttacks, setSelectedAttacks] = useState([]);
+    const [selectedAttacks, setSelectedAttacks] = useState([
+        'katana',
+        'Nmap',
+        'Curl',
+        'Corsy - Cors',
+        'Httpx',
+        'Nuclei',
+    ]);
 
     useEffect(() => {
         dispatch(attackSlice.actions.setAttacks(selectedAttacks));

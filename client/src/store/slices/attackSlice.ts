@@ -1,10 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import urlValidation from '../../utils/urlValidation';
 
-export interface Attack {
-    name: any;
-}
-
 export interface AttackSlice {
     selectedAttacks: any[];
     url: string;
@@ -14,7 +10,14 @@ export interface AttackSlice {
 }
 
 const initialState: AttackSlice = {
-    selectedAttacks: [],
+    selectedAttacks: [
+        'Katana',
+        'Nmap',
+        'Curl',
+        'Corsy - Cors',
+        'Httpx',
+        'Nuclei',
+    ],
     url: '',
     error: null,
     isLoading: false,

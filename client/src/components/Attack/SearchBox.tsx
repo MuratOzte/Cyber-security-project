@@ -8,6 +8,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import Loading from '../common/Loading';
 import { RootState } from '../../store';
 import attackSlice from '../../store/slices/attackSlice';
+import { motion } from 'framer-motion';
 
 const SearchBox = () => {
     const dispatch = useDispatch();
@@ -19,6 +20,7 @@ const SearchBox = () => {
         isDone: false,
     });
     const [url, setUrl] = useState('' as string);
+    const [isInvalidUrl, setIsInvalidUrl] = useState(false);
 
     const focusToggleHandler = () => {
         setState((prev) => {
@@ -43,13 +45,25 @@ const SearchBox = () => {
     };
 
     const submitHandler = () => {
+        if (url.length === 0) {
+            setIsInvalidUrl(true);
+            setTimeout(() => {
+                setIsInvalidUrl(false);
+            }, 400);
+            return;
+        }
         dispatch(attackSlice.actions.setPosition('loadingPosition'));
         dispatch(attackSlice.actions.setUrl(url));
         dispatch(attackSlice.actions.setIsLoading(true));
     };
 
     return (
-        <div className=" flex justify-center w-2/3 p-2 pb-0 relative">
+        <motion.div
+            animate={{
+                x: isInvalidUrl ? [0, 10, -10, 10, -10, 10, -10, 0] : 0,
+            }}
+            className=" flex justify-center w-2/3 p-2 pb-0 relative"
+        >
             <input
                 onFocus={focusToggleHandler}
                 onBlur={focusToggleHandler}
@@ -85,7 +99,7 @@ const SearchBox = () => {
                     )}
                 </div>
             </button>
-        </div>
+        </motion.div>
     );
 };
 
